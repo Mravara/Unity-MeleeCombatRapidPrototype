@@ -30,9 +30,12 @@ namespace Binx
 
         public GameObject body;
         public GameObject dodgeBody;
-        
+
         public void DealDamage(int damage)
         {
+            if (isDodging)
+                return;
+            
             currentHealth -= Mathf.Max(0,damage);
             if (currentHealth <= 0)
             {

@@ -12,5 +12,13 @@ public class SwingEnemyState : AbstractEnemyState
         owner.NavMeshAgent.acceleration = 100f;
         owner.NavMeshAgent.angularSpeed = 20f;
         owner.Animator.SetTrigger("Swing");
+        owner.SwordCollider.enabled = true;
+    }
+
+    public override void OnExitState()
+    {
+        base.OnExitState();
+        
+        owner.SwordCollider.enabled = false;
     }
 }

@@ -11,8 +11,7 @@ public class IdleEnemyState : AbstractEnemyState
     {
         base.UpdateState();
         
-        float distance = Vector3.Distance(Player.instance.Position, transform.position);
-        if (distance < detectPlayerDistance)
+        if (owner.FieldOfView.PlayerInSight())
         {
             owner.ChangeState(EnemyStateType.Walk);
         }

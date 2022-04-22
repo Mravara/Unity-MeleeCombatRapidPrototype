@@ -16,8 +16,7 @@ public class WalkEnemyState : AbstractEnemyState
         owner.NavMeshAgent.angularSpeed = 200f;
         owner.NavMeshAgent.SetDestination(Player.instance.Position);
         
-        float distance = Vector3.Distance(Player.instance.Position, transform.position);
-        if (distance < minHitDistance)
+        if (owner.FieldOfView.PlayerInAttackRange())
         {
             owner.ChangeState(EnemyStateType.PrepareToSwing);
         }

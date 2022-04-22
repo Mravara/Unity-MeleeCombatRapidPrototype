@@ -31,8 +31,12 @@ public class HoldSwingEnemyState : AbstractEnemyState
 
         if (nextState && currentStateDuration >= maxStateDuration)
         {
-            float distance = Vector3.Distance(Player.instance.Position, transform.position);
-            if (distance < 5f)
+            if (!owner.FieldOfView.PlayerInRange())
+            {
+                owner.ChangeState(EnemyStateType.Idle);
+                owner.Animator.SetTrigger("Idle");
+            }
+            else if (owner.FieldOfView.PlayerInAttackRange())
             {
                 if (nextState.IsReady)
                     owner.ChangeState(nextState.stateType);

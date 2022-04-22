@@ -2,11 +2,10 @@ using Binx;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SwordmanEnemy : MonoBehaviour
+public class GreatSwordmanEnemy : MonoBehaviour
 {
     [Header("References")]
     //[SerializeField] private new Renderer renderer;
-    [SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private ColliderLink swordColliderLink;
     [SerializeField] private Animator animator;
     [SerializeField] private NavMeshAgent navmeshAgent;
@@ -47,7 +46,6 @@ public class SwordmanEnemy : MonoBehaviour
     public Animator Animator => animator;
     public NavMeshAgent NavMeshAgent => navmeshAgent;
     public Collider SwordCollider => swordCollider;
-    public FieldOfView FieldOfView => fieldOfView;
     
     private void Start()
     {
@@ -60,10 +58,10 @@ public class SwordmanEnemy : MonoBehaviour
         collider = GetComponent<Collider>();
         renderer = GetComponent<Renderer>();
 
-        foreach (AbstractEnemyState s in enemyStates)
-        {
-            s.owner = this;
-        }
+        // foreach (AbstractEnemyState s in enemyStates)
+        // {
+        //     s.owner = this;
+        // }
 
         ChangeState(idleEnemyState);
     }
