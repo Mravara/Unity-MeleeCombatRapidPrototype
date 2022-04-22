@@ -222,7 +222,8 @@ namespace Binx
 			// note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is a move input rotate player when the player is moving
 			if (_input.move != Vector2.zero)
-				_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg + _mainCamera.transform.eulerAngles.y;
+				_targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg
+					+ _mainCamera.transform.eulerAngles.y;
 			
 			transform.LookAt(lookAtTarget, Vector3.up);
 			transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
@@ -358,7 +359,7 @@ namespace Binx
 
 		public void OnJump(InputValue val)
 		{
-			if (Player.instance.isDodging)
+			if (Player.instance.isDodging || _input.move.magnitude == 0f)
 				return;
 
 			StartCoroutine(DodgeCoroutine());
@@ -373,11 +374,16 @@ namespace Binx
 			float duration = 0f;
 			float dodgeDuration = 0.3f;
 			_speed = 15f;
+			Vector3 forwardDirection = transform.forward;
+			
+			if (_input.move.magnitude > 0f)
+				forwardDirection = targetDirection.normalized;
+			
 			while (duration < dodgeDuration)
 			{
 				float deltaTime = Time.deltaTime;
 				duration += deltaTime;
-				_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+				_controller.Move(forwardDirection * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
 				yield return null;
 			}
 
@@ -391,11 +397,11 @@ namespace Binx
 			{
 				float deltaTime = Time.deltaTime;
 				duration += deltaTime;
-				_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+				_controller.Move(forwardDirection * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
 				yield return null;
 			}
 
-			_speed = 5f;
+			_speed = 0f;
 			Player.instance.isDodging = false;
 		}
 	}
