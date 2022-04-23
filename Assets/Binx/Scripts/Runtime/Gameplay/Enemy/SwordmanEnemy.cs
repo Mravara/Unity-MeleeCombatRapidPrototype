@@ -28,6 +28,12 @@ public class SwordmanEnemy : MonoBehaviour
     [SerializeField] private PrepareToSwingEnemyState prepareToSwingEnemyState;
     [SerializeField] private HoldSwingEnemyState holdSwingEnemyState;
     [SerializeField] private SwingEnemyState swingEnemyState;
+
+    [SerializeField] private PrepareToThrustEnemyState prepareToThrustEnemyState;
+    [SerializeField] private HoldPrepareToThrustEnemyState holdPrepareToThrustEnemyState;
+    [SerializeField] private HoldThrustEnemyState holdThrustEnemyState;
+    [SerializeField] private ThrustEnemyState thrustEnemyState;
+    
     [SerializeField] private RecoverFromSwingEnemyState recoverFromSwingEnemyState;
     [SerializeField] private StaggeredEnemyState staggeredEnemyState;
     [SerializeField] private AbstractEnemyState[] enemyStates;
@@ -88,6 +94,7 @@ public class SwordmanEnemy : MonoBehaviour
             AbstractEnemyState s = enemyStates[i];
             if (s.stateType == t)
             {
+                Debug.Log($"Changing state to {t}");
                 ChangeState(s);
                 return;
             }

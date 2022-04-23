@@ -238,8 +238,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 173434369674620974}
   isActive: 0
 --- !u!1 &731132914070633836
@@ -290,9 +288,57 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 6431794827790830745}
+  isActive: 0
+--- !u!1 &735111183116321577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5196053086382118235}
+  - component: {fileID: 1790604670439919820}
+  m_Layer: 0
+  m_Name: ThrustEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5196053086382118235
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735111183116321577}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3173409487200839381}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1790604670439919820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 735111183116321577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 269be7049406e4c42977e2501e3173ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 9
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 0.1
+  nextState: {fileID: 4203731020342867855}
   isActive: 0
 --- !u!1 &946449000164291654
 GameObject:
@@ -444,11 +490,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
+  m_Speed: 5
+  m_Acceleration: 30
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 2
+  m_StoppingDistance: 3
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -489,7 +535,7 @@ MonoBehaviour:
   swordCollider: {fileID: 350437090}
   speed: 5
   initialWalkingSpeed: 5
-  accelerationValue: 8
+  accelerationValue: 30
   damage: 60
   maxHealth: 15
   currentState: {fileID: 0}
@@ -498,6 +544,10 @@ MonoBehaviour:
   prepareToSwingEnemyState: {fileID: 6221913060353398412}
   holdSwingEnemyState: {fileID: 6431794827790830745}
   swingEnemyState: {fileID: 173434369674620974}
+  prepareToThrustEnemyState: {fileID: 8356698469930513577}
+  holdPrepareToThrustEnemyState: {fileID: 7307152016427497833}
+  holdThrustEnemyState: {fileID: 4203731020342867855}
+  thrustEnemyState: {fileID: 1790604670439919820}
   recoverFromSwingEnemyState: {fileID: 5283103317449071818}
   staggeredEnemyState: {fileID: 886982101378663694}
   enemyStates:
@@ -508,6 +558,11 @@ MonoBehaviour:
   - {fileID: 173434369674620974}
   - {fileID: 5283103317449071818}
   - {fileID: 886982101378663694}
+  - {fileID: 8356698469930513577}
+  - {fileID: 7307152016427497833}
+  - {fileID: 1790604670439919820}
+  - {fileID: 4203731020342867855}
+  - {fileID: 5291129775742456093}
 --- !u!114 &1494031465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -520,8 +575,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85e99cdc37f379e47ba221e9c026ea1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightRadius: 10
-  attackRadius: 5
+  sightRadius: 15
+  shortAttackRadius: 5
+  longAttackRadius: 8
   angle: 100
 --- !u!1 &1692114568955948502
 GameObject:
@@ -557,6 +613,11 @@ Transform:
   - {fileID: 3675438241575803750}
   - {fileID: 8472788274468976471}
   - {fileID: 1012012468829857277}
+  - {fileID: 958541807921527345}
+  - {fileID: 8432886499189597410}
+  - {fileID: 5196053086382118235}
+  - {fileID: 575650960477733692}
+  - {fileID: 7574614436847731409}
   m_Father: {fileID: 1808500609645128227}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -721,8 +782,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.3
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 5283103317449071818}
   isActive: 0
 --- !u!1 &3498209484981270116
@@ -773,8 +832,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   detectPlayerDistance: 10
@@ -826,9 +883,57 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 3
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 9090451276621716019}
+  isActive: 0
+--- !u!1 &5536199524688284713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 958541807921527345}
+  - component: {fileID: 8356698469930513577}
+  m_Layer: 0
+  m_Name: PrepareToThrustEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &958541807921527345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536199524688284713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3173409487200839381}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8356698469930513577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5536199524688284713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e18010235e2f542b8bb809400c7557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 7
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 1
+  nextState: {fileID: 7307152016427497833}
   isActive: 0
 --- !u!1 &5894243393721300567
 GameObject:
@@ -878,9 +983,157 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 2
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 2736419198303184885}
+  isActive: 0
+--- !u!1 &6465569060317758053
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7574614436847731409}
+  - component: {fileID: 5291129775742456093}
+  m_Layer: 0
+  m_Name: RecoverFromThrustEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7574614436847731409
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465569060317758053}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3173409487200839381}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5291129775742456093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6465569060317758053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea9a3257e6817124792f2ce16f4baae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 11
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 1
+  nextState: {fileID: 2736419198303184885}
+  isActive: 0
+--- !u!1 &6537170906458619468
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 575650960477733692}
+  - component: {fileID: 4203731020342867855}
+  m_Layer: 0
+  m_Name: HoldThrustEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &575650960477733692
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537170906458619468}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3173409487200839381}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4203731020342867855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537170906458619468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda447cb8a5cdfc4bac99133586a93c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 10
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 0.5
+  nextState: {fileID: 5291129775742456093}
+  isActive: 0
+--- !u!1 &8434382901397473901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8432886499189597410}
+  - component: {fileID: 7307152016427497833}
+  m_Layer: 0
+  m_Name: HoldPrepareToThrustEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8432886499189597410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434382901397473901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3173409487200839381}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7307152016427497833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8434382901397473901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7507cd71c2496198dd0d79fc3ad70d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 8
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 0.5
+  nextState: {fileID: 1790604670439919820}
   isActive: 0
 --- !u!1 &8684833619830910340
 GameObject:
@@ -930,8 +1183,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   minHitDistance: 5

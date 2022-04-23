@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Binx;
 using UnityEngine;
 
 public class IdleEnemyState : AbstractEnemyState

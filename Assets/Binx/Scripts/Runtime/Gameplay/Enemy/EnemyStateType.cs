@@ -10,5 +10,10 @@ public enum EnemyStateType
     HoldSwing,
     Swing,
     RecoverFromSwing,
-    Staggered
+    Staggered,
+    PrepareToThrust,
+    HoldPrepareToThrust,
+    Thrust,
+    HoldThrust,
+    RecoverFromThrust
 }

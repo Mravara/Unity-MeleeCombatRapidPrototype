@@ -15,16 +15,6 @@ public class HoldSwingEnemyState : AbstractEnemyState
     
     public override void UpdateState()
     {
-        if (!isActive)
-        {
-            if (maxCooldown > 0f)
-            {
-                currentCooldown += Time.deltaTime;
-                
-            }
-            return;
-        }
-        
         owner.NavMeshAgent.SetDestination(Player.instance.Position);
         
         currentStateDuration += Time.deltaTime;
@@ -36,10 +26,9 @@ public class HoldSwingEnemyState : AbstractEnemyState
                 owner.ChangeState(EnemyStateType.Idle);
                 owner.Animator.SetTrigger("Idle");
             }
-            else if (owner.FieldOfView.PlayerInAttackRange())
+            else if (owner.FieldOfView.PlayerInShortAttackRange())
             {
-                if (nextState.IsReady)
-                    owner.ChangeState(nextState.stateType);
+                owner.ChangeState(nextState.stateType);
             }
             else
             {

@@ -511,7 +511,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808500609645128227, guid: a13e7fc544e08f542874a9de5779ee52, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.51
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 1808500609645128227, guid: a13e7fc544e08f542874a9de5779ee52, type: 3}
       propertyPath: m_LocalPosition.y
@@ -519,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1808500609645128227, guid: a13e7fc544e08f542874a9de5779ee52, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.67
+      value: 18.7
       objectReference: {fileID: 0}
     - target: {fileID: 1808500609645128227, guid: a13e7fc544e08f542874a9de5779ee52, type: 3}
       propertyPath: m_LocalRotation.w
@@ -692,8 +692,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 3
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 7291073174549036656}
   isActive: 0
 --- !u!114 &1828730322575676525
@@ -713,8 +711,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.3
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 5933922762164418697}
   isActive: 0
 --- !u!1 &1932581079752254236
@@ -1134,8 +1130,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   minHitDistance: 5
@@ -1170,8 +1164,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 1828730322575676525}
   isActive: 0
 --- !u!65 &4957129918636145563
@@ -1221,8 +1213,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 4776787002538174682}
   isActive: 0
 --- !u!114 &5933922762164418697
@@ -1242,8 +1232,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 2
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 4535524955730527158}
   isActive: 0
 --- !u!4 &6207994172232269947
@@ -1322,8 +1310,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
-  currentCooldown: 0
-  maxCooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   detectPlayerDistance: 10
