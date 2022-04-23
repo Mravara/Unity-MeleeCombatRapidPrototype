@@ -103,5 +103,15 @@ namespace Binx
             isDead = true;
             Debug.Log("DEAD!");
         }
+
+        public Vector3 GetStoppingPoint(Vector3 from, float distance)
+        {
+            float currentDistance = Vector3.Distance(from, Position);
+            
+            if (distance > currentDistance)
+                return from;
+            
+            return Vector3.MoveTowards(from, Position, currentDistance - distance);
+        }
     }
 }

@@ -9,14 +9,14 @@ public class HoldPrepareToThrustEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 1f;
-        owner.NavMeshAgent.angularSpeed = 200f;
+        // owner.NavMeshAgent.speed = 1f;
+        owner.SetSpeed(1f);
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
 
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
+        // owner.NavMeshAgent.SetDestination(Player.instance.GetStoppingPoint(transform.position, 3f));
     }
 }

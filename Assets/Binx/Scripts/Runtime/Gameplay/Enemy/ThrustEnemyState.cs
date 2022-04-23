@@ -9,9 +9,9 @@ public class ThrustEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 20f;
-        owner.NavMeshAgent.angularSpeed = 400f;
-        owner.NavMeshAgent.acceleration = 200f;
+        // owner.NavMeshAgent.speed = 20f;
+        // owner.NavMeshAgent.acceleration = 200f;
+        owner.SetSpeed(10f);
         owner.Animator.SetTrigger("Thrust");
         owner.SwordCollider.enabled = true;
     }
@@ -20,6 +20,6 @@ public class ThrustEnemyState : AbstractEnemyState
     {
         base.UpdateState();
 
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
+        // owner.NavMeshAgent.SetDestination(Player.instance.Position);
     }
 }

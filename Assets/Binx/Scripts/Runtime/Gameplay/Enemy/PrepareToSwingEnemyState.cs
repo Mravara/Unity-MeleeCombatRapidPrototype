@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Binx;
-using UnityEngine;
 
 public class PrepareToSwingEnemyState : AbstractEnemyState
 {
@@ -9,8 +6,8 @@ public class PrepareToSwingEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 3f;
-        owner.NavMeshAgent.angularSpeed = 50f;
+        // owner.NavMeshAgent.speed = 3f;
+        owner.SetSpeed(3f);
         owner.Animator.SetTrigger("PrepareSwing");
     }
     
@@ -18,6 +15,7 @@ public class PrepareToSwingEnemyState : AbstractEnemyState
     {
         base.UpdateState();
 
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
+        // owner.NavMeshAgent.SetDestination(Player.instance.GetStoppingPoint(transform.position, 3f));
+        
     }
 }

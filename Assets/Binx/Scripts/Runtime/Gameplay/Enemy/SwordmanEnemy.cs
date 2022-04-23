@@ -1,4 +1,5 @@
 using Binx;
+using Pathfinding;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,9 +10,11 @@ public class SwordmanEnemy : MonoBehaviour
     [SerializeField] private FieldOfView fieldOfView;
     [SerializeField] private ColliderLink swordColliderLink;
     [SerializeField] private Animator animator;
-    [SerializeField] private NavMeshAgent navmeshAgent;
+    // [SerializeField] private NavMeshAgent navmeshAgent;
     [SerializeField] private new Collider collider;
     [SerializeField] private Collider swordCollider;
+    [SerializeField] private AIPath aiPath;
+    [SerializeField] private AIDestinationSetter aiDestinationSetter;
     
     [Header("Damage")]
     [SerializeField] private float speed = 5f;
@@ -51,7 +54,7 @@ public class SwordmanEnemy : MonoBehaviour
     public float CurrentHealth => currentHealth;
     public float MaxHealth => maxHealth * maxHealthMultiplier;
     public Animator Animator => animator;
-    public NavMeshAgent NavMeshAgent => navmeshAgent;
+    // public NavMeshAgent NavMeshAgent => navmeshAgent;
     public Collider SwordCollider => swordCollider;
     public FieldOfView FieldOfView => fieldOfView;
     
@@ -59,12 +62,14 @@ public class SwordmanEnemy : MonoBehaviour
     {
         swordColliderLink.OnTriggerEnterEvent += OnSwordTriggerEnter;
         
-        navmeshAgent.speed = Speed;
-        navmeshAgent.acceleration = accelerationValue;
+        // navmeshAgent.speed = Speed;
+        // navmeshAgent.acceleration = accelerationValue;
         currentHealth = MaxHealth;
 
         collider = GetComponent<Collider>();
         renderer = GetComponent<Renderer>();
+
+        aiDestinationSetter.target = Player.instance.transform;
 
         foreach (AbstractEnemyState s in enemyStates)
         {
@@ -132,5 +137,10 @@ public class SwordmanEnemy : MonoBehaviour
     public void EndDamage()
     {
         
+    }
+
+    public void SetSpeed(float speed)
+    {
+        aiPath.maxSpeed = speed;
     }
 }

@@ -11,29 +11,25 @@ public class WalkEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
         
-        owner.NavMeshAgent.speed = owner.Speed;
-        owner.NavMeshAgent.angularSpeed = 400f;
+        // owner.NavMeshAgent.speed = owner.Speed;
+        owner.SetSpeed(owner.Speed);
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
-
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
         
         if (owner.FieldOfView.PlayerInShortAttackRange())
         {
-            owner.NavMeshAgent.stoppingDistance = 3f;
             owner.ChangeState(EnemyStateType.PrepareToSwing);
         }
         else if (owner.FieldOfView.PlayerInLongAttackRange())
         {
-            owner.NavMeshAgent.stoppingDistance = 3f;
             owner.ChangeState(EnemyStateType.PrepareToThrust);
         }
-        else
+        else if (owner.FieldOfView.PlayerInRange())
         {
-            owner.NavMeshAgent.stoppingDistance = 0f;
+            // owner.NavMeshAgent.SetDestination(Player.instance.GetStoppingPoint(transform.position, 2f));
         }
     }
 }

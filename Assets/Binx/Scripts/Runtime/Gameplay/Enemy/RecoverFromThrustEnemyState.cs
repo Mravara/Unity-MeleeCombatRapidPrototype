@@ -9,9 +9,16 @@ public class RecoverFromThrustEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 2f;
-        owner.NavMeshAgent.angularSpeed = 50f;
+        // owner.NavMeshAgent.speed = 1f;
+        owner.SetSpeed(1f);
         owner.Animator.SetTrigger("RecoverFromThrust");
         owner.SwordCollider.enabled = false;
+    }
+    
+    public override void UpdateState()
+    {
+        base.UpdateState();
+
+        // owner.NavMeshAgent.SetDestination(Player.instance.GetStoppingPoint(transform.position, 2f));
     }
 }

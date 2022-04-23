@@ -9,14 +9,14 @@ public class RecoverFromSwingEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = owner.Speed;
-        owner.NavMeshAgent.angularSpeed = 200f;
+        // owner.NavMeshAgent.speed = 0f;
+        owner.SetSpeed(0f);
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
 
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
+        // owner.NavMeshAgent.SetDestination(Player.instance.Position);
     }
 }

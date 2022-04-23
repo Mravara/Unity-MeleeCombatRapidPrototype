@@ -9,8 +9,8 @@ public class PrepareToThrustEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 1f;
-        owner.NavMeshAgent.angularSpeed = 200f;
+        // owner.NavMeshAgent.speed = 1f;
+        owner.SetSpeed(3f);
         owner.Animator.SetTrigger("PrepareThrust");
     }
     
@@ -18,6 +18,6 @@ public class PrepareToThrustEnemyState : AbstractEnemyState
     {
         base.UpdateState();
 
-        owner.NavMeshAgent.SetDestination(Player.instance.Position);
+        // owner.NavMeshAgent.SetDestination(Player.instance.Position);
     }
 }
