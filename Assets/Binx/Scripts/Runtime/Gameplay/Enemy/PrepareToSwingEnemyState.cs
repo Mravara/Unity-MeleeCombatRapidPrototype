@@ -9,7 +9,7 @@ public class PrepareToSwingEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
 
-        owner.NavMeshAgent.speed = 2f;
+        owner.NavMeshAgent.speed = 3f;
         owner.NavMeshAgent.angularSpeed = 50f;
         owner.Animator.SetTrigger("PrepareSwing");
     }

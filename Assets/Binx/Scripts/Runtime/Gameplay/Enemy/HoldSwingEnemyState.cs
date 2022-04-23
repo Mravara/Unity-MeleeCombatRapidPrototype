@@ -10,7 +10,7 @@ public class HoldSwingEnemyState : AbstractEnemyState
         base.OnEnterState();
 
         owner.NavMeshAgent.speed = 1f;
-        owner.NavMeshAgent.angularSpeed = 20f;
+        owner.NavMeshAgent.angularSpeed = 50f;
     }
     
     public override void UpdateState()
@@ -26,14 +26,18 @@ public class HoldSwingEnemyState : AbstractEnemyState
                 owner.ChangeState(EnemyStateType.Idle);
                 owner.Animator.SetTrigger("Idle");
             }
-            else if (owner.FieldOfView.PlayerInShortAttackRange())
-            {
-                owner.ChangeState(nextState.stateType);
-            }
+            // else if (owner.FieldOfView.PlayerInShortAttackRange())
+            // {
+            //     owner.ChangeState(nextState.stateType);
+            // }
+            // else
+            // {
+            //     owner.ChangeState(EnemyStateType.Walk);
+            //     owner.Animator.SetTrigger("Idle");
+            // }
             else
             {
-                owner.ChangeState(EnemyStateType.Walk);
-                owner.Animator.SetTrigger("Idle");
+                owner.ChangeState(nextState.stateType);
             }
         }
     }
