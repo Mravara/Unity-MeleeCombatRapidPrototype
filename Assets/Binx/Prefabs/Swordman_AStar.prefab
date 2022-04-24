@@ -161,6 +161,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.3
+  cooldown: 0
   nextState: {fileID: 7797206856917161309}
   isActive: 0
 --- !u!1 &1578589549242695667
@@ -211,6 +212,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   detectPlayerDistance: 10
@@ -262,6 +264,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 3
+  cooldown: 0
   nextState: {fileID: 6576277379037811620}
   isActive: 0
 --- !u!1 &2647361506851000008
@@ -312,6 +315,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 2813709118990743993}
   isActive: 0
 --- !u!1 &2694388611285485273
@@ -656,6 +660,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
+  cooldown: 3
   nextState: {fileID: 8945898712519804174}
   isActive: 0
 --- !u!1 &3411414677918583486
@@ -706,6 +711,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.1
+  cooldown: 0
   nextState: {fileID: 2248073834532404760}
   isActive: 0
 --- !u!1 &3611883701116675137
@@ -1019,6 +1025,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.5
+  cooldown: 0
   nextState: {fileID: 4448964203705719131}
   isActive: 0
 --- !u!1 &6765213696568386579
@@ -1069,6 +1076,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   minHitDistance: 5
@@ -1120,6 +1128,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
+  cooldown: 3
   nextState: {fileID: 4615165017434910974}
   isActive: 0
 --- !u!1 &8406227132141256640
@@ -1170,6 +1179,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.5
+  cooldown: 0
   nextState: {fileID: 44423473432325730}
   isActive: 0
 --- !u!1 &8997687273080998898
@@ -1220,6 +1230,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
+  cooldown: 0
   nextState: {fileID: 44423473432325730}
   isActive: 0
 --- !u!1 &9213474675656439771
@@ -1270,5 +1281,6 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.5
+  cooldown: 0
   nextState: {fileID: 7784958307292928138}
   isActive: 0

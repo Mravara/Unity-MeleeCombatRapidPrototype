@@ -13,6 +13,7 @@ public class RecoverFromThrustEnemyState : AbstractEnemyState
         owner.SetSpeed(1f);
         owner.Animator.SetTrigger("RecoverFromThrust");
         owner.SwordCollider.enabled = false;
+        owner.AIPath.maxAcceleration = -2.5f;
     }
     
     public override void UpdateState()

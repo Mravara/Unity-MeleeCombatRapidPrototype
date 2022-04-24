@@ -21,11 +21,13 @@ public class WalkEnemyState : AbstractEnemyState
         
         if (owner.FieldOfView.PlayerInShortAttackRange())
         {
-            owner.ChangeState(EnemyStateType.PrepareToSwing);
+            if (owner.IsStateReady(EnemyStateType.PrepareToSwing))
+                owner.ChangeState(EnemyStateType.PrepareToSwing);
         }
         else if (owner.FieldOfView.PlayerInLongAttackRange())
         {
-            owner.ChangeState(EnemyStateType.PrepareToThrust);
+            if (owner.IsStateReady(EnemyStateType.PrepareToThrust))
+                owner.ChangeState(EnemyStateType.PrepareToThrust);
         }
         else if (owner.FieldOfView.PlayerInRange())
         {

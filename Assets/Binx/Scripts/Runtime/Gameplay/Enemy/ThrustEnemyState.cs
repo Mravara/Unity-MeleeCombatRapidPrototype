@@ -11,7 +11,8 @@ public class ThrustEnemyState : AbstractEnemyState
 
         // owner.NavMeshAgent.speed = 20f;
         // owner.NavMeshAgent.acceleration = 200f;
-        owner.SetSpeed(10f);
+        owner.SetSpeed(40f);
+        owner.AIPath.maxAcceleration = 2000f;
         owner.Animator.SetTrigger("Thrust");
         owner.SwordCollider.enabled = true;
     }

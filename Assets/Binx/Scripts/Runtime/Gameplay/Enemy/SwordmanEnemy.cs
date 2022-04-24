@@ -57,6 +57,7 @@ public class SwordmanEnemy : MonoBehaviour
     // public NavMeshAgent NavMeshAgent => navmeshAgent;
     public Collider SwordCollider => swordCollider;
     public FieldOfView FieldOfView => fieldOfView;
+    public AIPath AIPath => aiPath;
     
     private void Start()
     {
@@ -142,5 +143,19 @@ public class SwordmanEnemy : MonoBehaviour
     public void SetSpeed(float speed)
     {
         aiPath.maxSpeed = speed;
+    }
+
+    public bool IsStateReady(EnemyStateType state)
+    {
+        for (int i = 0; i < enemyStates.Length; i++)
+        {
+            AbstractEnemyState s = enemyStates[i];
+            if (s.stateType == state)
+            {
+                return s.IsReady;
+            }
+        }
+
+        return false;
     }
 }

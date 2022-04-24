@@ -12,16 +12,22 @@ public abstract class AbstractEnemyState : MonoBehaviour
     public float currentStateDuration;
     public float minStateDuration;
     public float maxStateDuration;
+    public float cooldown;
     public AbstractEnemyState nextState;
     public bool isActive = false;
+
+    protected float nextReadyTime = 0f;
+
+    public bool IsReady => Time.time >= nextReadyTime;
 
     public virtual void UpdateState()
     {
         currentStateDuration += Time.deltaTime;
-
+        
         if (nextState && currentStateDuration >= maxStateDuration)
         {
-            owner.ChangeState(nextState.stateType);
+            if (nextState.IsReady)
+                owner.ChangeState(nextState.stateType);
         }
     }
 
@@ -34,5 +40,6 @@ public abstract class AbstractEnemyState : MonoBehaviour
     public virtual void OnExitState()
     {
         isActive = false;
+        nextReadyTime = Time.time + cooldown;
     }
 }

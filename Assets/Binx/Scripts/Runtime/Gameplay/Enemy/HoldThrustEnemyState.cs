@@ -11,7 +11,7 @@ public class HoldThrustEnemyState : AbstractEnemyState
 
         // owner.NavMeshAgent.speed = 1f;
         // owner.NavMeshAgent.acceleration = 50f;
-        owner.SetSpeed(1f);
+        owner.SetSpeed(0f);
     }
     
     public override void UpdateState()

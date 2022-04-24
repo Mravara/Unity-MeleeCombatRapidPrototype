@@ -154,6 +154,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8367677088775396993, guid: 1b7e8969c5677f3409d19f40ec9761d6, type: 3}
+      propertyPath: logPathResults
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8367677088775396993, guid: 1b7e8969c5677f3409d19f40ec9761d6, type: 3}
       propertyPath: data.dataString
       value: UEsDBBQAAAgIAAAIIeyKd7bBlwIAAKEFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGFVNtu2kAQ/RW0z20Fhrilb60hpJWSoNAqD3UeJvYYr1jvWnsJkIh/7+zaYEMqVbJk79z2nDMzfmNcmhozq/RC8/xW5ci+Dpj/Zh8GnfMGd7BWcsVf8RjzyHNb+iAIMQ9guSL7yKcZVaHVPPsm18IHD8noJC+Urub5GhNlrCFzAcIgubSyPluS6W3Adm3Cvn2/+vfgQF8ZSov6f1FOZgKqGnOPtgseDYfHeP8ZQiVxaaOiT1f+BiUENy0UZvd1oJpAbRwRoYCcA1ELICZ0LJGvS+vT+8n3RWHQtsA07Gdck0JNVfZdNbJVYDYNuhcQLkAImJqSt++84+HncQgotKpujve2rGzJs80D7DMwtids3zzrkI+CSlsQG3gW+FiivFMLrZzMe7nOYDTrnU/skhIzj81qhye8F0ZXv+/SqOvSIfDfJYJXz62Hjiuhgt5RTGfU1JsfhDdMhmklJquH8NvgL1j3R6h1XHNtLLnaotJje1ZO+1A2D5p5Ks4mSksM5hZxjRKE3S+pjL1s4YWvd+2F5xr8spxnHXfgIiWYT/HRsOlj37lU29Ctq6YZP11VLxWXdoWgs7JX0ZRqe4umvHdWcIkdJ++4IxkTJWUzgOYfaSunC8h6aRZ31mmcgYWwBoSJxqQ/G4YkDRnSCeFHMvDwxf8QC/88eZlLoHtFMLM7JcMCnb2f/CCsHc/PR51hPBriJI+jKJ9Mojj+OI3GMI2jeHI1HceTL1MWNoFLUh3EshGtlZ1mSHZcJA398Y82WGiow+7lGrYL/lqp3gBwWahVphHlfVPhRBY1XUJ/iXyec6K5Qmu5DNPH3lImVLbBPD0VSoOw853VkHZVUlbzF2W9JWVJ+I+lzJtPa7XU+MJx6y8/Fjuww19QSwMEFAAACAgAAAgh7Cr9GIttAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFKqmaFBqkmKmZFRiomJkZmZrqWRcaKlmZGZiamlsZmJhaVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7Ip3tsGXAgAAoQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7Cr9GIttAAAAeAAAAAkAJAAAAAAAAAAAAAAA5AIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACcAwAAAAA=
       objectReference: {fileID: 0}
@@ -834,6 +838,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 3
+  cooldown: 0
   nextState: {fileID: 7291073174549036656}
   isActive: 0
 --- !u!114 &1828730322575676525
@@ -853,6 +858,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0.3
+  cooldown: 0
   nextState: {fileID: 5933922762164418697}
   isActive: 0
 --- !u!1 &1932581079752254236
@@ -1272,6 +1278,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   minHitDistance: 5
@@ -1306,6 +1313,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 1828730322575676525}
   isActive: 0
 --- !u!65 &4957129918636145563
@@ -1412,6 +1420,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 1
+  cooldown: 0
   nextState: {fileID: 4776787002538174682}
   isActive: 0
 --- !u!114 &5933922762164418697
@@ -1431,6 +1440,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 2
+  cooldown: 0
   nextState: {fileID: 4535524955730527158}
   isActive: 0
 --- !u!4 &6207994172232269947
@@ -1509,6 +1519,7 @@ MonoBehaviour:
   currentStateDuration: 0
   minStateDuration: 0
   maxStateDuration: 0
+  cooldown: 0
   nextState: {fileID: 0}
   isActive: 0
   detectPlayerDistance: 10

@@ -23,7 +23,9 @@ public class HoldSwingEnemyState : AbstractEnemyState
         {
             if (!owner.FieldOfView.PlayerInRange())
             {
-                owner.ChangeState(EnemyStateType.Idle);
+                if (owner.IsStateReady(EnemyStateType.Idle))
+                    owner.ChangeState(EnemyStateType.Idle);
+                
                 owner.Animator.SetTrigger("Idle");
             }
             // else if (owner.FieldOfView.PlayerInShortAttackRange())
@@ -37,7 +39,8 @@ public class HoldSwingEnemyState : AbstractEnemyState
             // }
             else
             {
-                owner.ChangeState(nextState.stateType);
+                if (nextState.IsReady)
+                    owner.ChangeState(nextState.stateType);
             }
         }
     }
