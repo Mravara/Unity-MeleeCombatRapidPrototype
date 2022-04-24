@@ -10,7 +10,7 @@ public class RecoverFromThrustEnemyState : AbstractEnemyState
         base.OnEnterState();
 
         // owner.NavMeshAgent.speed = 1f;
-        owner.SetSpeed(1f);
+        owner.SetSpeed(5f);
         owner.Animator.SetTrigger("RecoverFromThrust");
         owner.SwordCollider.enabled = false;
         owner.AIPath.maxAcceleration = -2.5f;
