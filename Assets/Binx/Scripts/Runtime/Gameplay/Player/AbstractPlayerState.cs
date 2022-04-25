@@ -1,19 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using Binx;
 using UnityEngine;
 
-public abstract class AbstractEnemyState : MonoBehaviour
+public abstract class AbstractPlayerState : MonoBehaviour
 {
-    public EnemyStateType stateType;
+    public Player player;
     
-    [HideInInspector]
-    public SwordmanEnemy owner;
-    
+    public PlayerStateType stateType;
+
     public float currentStateDuration;
     public float minStateDuration;
     public float maxStateDuration;
     public float cooldown;
-    public AbstractEnemyState nextState;
+    public AbstractPlayerState nextState;
     public bool isActive = false;
 
     protected float nextReadyTime = 0f;
@@ -29,7 +29,7 @@ public abstract class AbstractEnemyState : MonoBehaviour
             if (nextState && currentStateDuration >= maxStateDuration)
             {
                 if (nextState.IsReady)
-                    owner.ChangeState(nextState.stateType);
+                    player.ChangeState(nextState.stateType);
             }
         }
     }

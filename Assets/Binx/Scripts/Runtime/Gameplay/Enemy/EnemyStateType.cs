@@ -17,3 +17,17 @@ public enum EnemyStateType
     HoldThrust,
     RecoverFromThrust
 }
+
+public enum PlayerStateType
+{
+    Idle,
+    Walk,
+    StartBlock,
+    HoldBlock,
+    EndBlock,
+    Swing,
+    StartHeavy,
+    HoldHeavy,
+    ReleaseHeavy,
+    HoldReleaseHeavy
+}

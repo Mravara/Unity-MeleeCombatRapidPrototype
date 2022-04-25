@@ -233,7 +233,10 @@ namespace Binx
 			animationDirection = Vector3.Lerp(animationDirection, targetAnimationDirection, runAnimationLerpFactor * deltaTime);
 			
 			// move the player
-			_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+			if (Player.instance.CurrentState.stateType == PlayerStateType.Swing || Player.instance.CurrentState.stateType == PlayerStateType.ReleaseHeavy)
+				_controller.Move(transform.forward * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+			else
+				_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
 
 			//s update animator if using character
 			if (hasAnimator)

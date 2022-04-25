@@ -100,7 +100,6 @@ public class SwordmanEnemy : MonoBehaviour
             AbstractEnemyState s = enemyStates[i];
             if (s.stateType == t)
             {
-                Debug.Log($"Changing state to {t}");
                 ChangeState(s);
                 return;
             }
