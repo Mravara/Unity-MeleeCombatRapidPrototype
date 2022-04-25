@@ -433,6 +433,10 @@ PrefabInstance:
       propertyPath: maxStateDuration
       value: 0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 3416916476004799566, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
+      objectReference: {fileID: 0}
     - target: {fileID: 6329456421467977181, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
       propertyPath: m_Name
       value: Prefab_Player
