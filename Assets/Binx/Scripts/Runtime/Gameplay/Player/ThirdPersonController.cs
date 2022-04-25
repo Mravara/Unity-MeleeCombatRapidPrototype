@@ -125,7 +125,7 @@ namespace Binx
 		{
 			JumpAndGravity();
 			GroundedCheck();
-			if (!Player.instance.isDodging)
+			if (!Player.instance.isDodging && !Player.instance.blockMovement)
 			{
 				Move();
 			}
@@ -362,7 +362,7 @@ namespace Binx
 
 		public void OnJump(InputValue val)
 		{
-			if (Player.instance.isDodging || _input.move.magnitude == 0f)
+			if (Player.instance.isDodging || _input.move.magnitude == 0f || Player.instance.CurrentState.stateType != PlayerStateType.Idle)
 				return;
 
 			StartCoroutine(DodgeCoroutine());
@@ -376,7 +376,6 @@ namespace Binx
 			Player.instance.isDodging = true;
 			float duration = 0f;
 			float dodgeDuration = 0.3f;
-			_speed = 15f;
 			Vector3 forwardDirection = transform.forward;
 			
 			if (_input.move.magnitude > 0f)
@@ -386,7 +385,7 @@ namespace Binx
 			{
 				float deltaTime = Time.deltaTime;
 				duration += deltaTime;
-				_controller.Move(forwardDirection * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+				ManualMove(forwardDirection, 15f);
 				yield return null;
 			}
 
@@ -395,17 +394,21 @@ namespace Binx
 			
 			duration = 0f;
 			float dodgeRecovery = 0.2f;
-			_speed = 3f;
 			while (duration < dodgeRecovery)
 			{
-				float deltaTime = Time.deltaTime;
-				duration += deltaTime;
-				_controller.Move(forwardDirection * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+				duration += Time.deltaTime;
+				ManualMove(forwardDirection, 3);
 				yield return null;
 			}
 
 			_speed = 0f;
 			Player.instance.isDodging = false;
+		}
+
+		public void ManualMove(Vector3 direction, float speed)
+		{
+			float deltaTime = Time.deltaTime;
+			_controller.Move(direction * (speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
 		}
 	}
 }

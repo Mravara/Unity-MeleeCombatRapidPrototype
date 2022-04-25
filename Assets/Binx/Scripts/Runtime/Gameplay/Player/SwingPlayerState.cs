@@ -4,17 +4,13 @@ using UnityEngine;
 
 public class SwingPlayerState : AbstractPlayerState
 {
-    private float lastSpeed;
-    private float lastSpeedChargeRate;
+    private float speedWhenSwinging = 15f;
     
     public override void OnEnterState()
     {
         base.OnEnterState();
 
-        lastSpeed = player.TPC.MoveSpeed;
-        lastSpeedChargeRate = player.TPC.SpeedChangeRate;
-        lastSpeedChargeRate = 100f;
-        player.TPC.MoveSpeed = 10f;
+        player.blockMovement = true;
         player.Animator.SetTrigger("StartSwing");
     }
     
@@ -22,8 +18,7 @@ public class SwingPlayerState : AbstractPlayerState
     {
         base.OnEnterState();
 
-        player.TPC.MoveSpeed = lastSpeed;
-        player.TPC.SpeedChangeRate = lastSpeedChargeRate;
+        player.blockMovement = false;
     }
 
     public override void UpdateState()
@@ -32,8 +27,7 @@ public class SwingPlayerState : AbstractPlayerState
 
         if (currentStateDuration > 0.1f)
         {
-            player.TPC.MoveSpeed = lastSpeed;
-            player.TPC.SpeedChangeRate = lastSpeedChargeRate;
+            player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
         }
     }
 }

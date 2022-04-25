@@ -26,6 +26,7 @@ namespace Binx
         public float dodgeDuration = 0.3f;
         public float dodgeRecovery = 0.1f;
         public bool isDodging = false;
+        public bool blockMovement = false;
         
         public Vector3 Position => transform.position;
         public Vector3 ProjectedMousePosition => projectedMousePosition;

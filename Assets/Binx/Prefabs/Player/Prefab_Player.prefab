@@ -453,7 +453,7 @@ MonoBehaviour:
   stateType: 5
   currentStateDuration: 0
   minStateDuration: 0
-  maxStateDuration: 0.3
+  maxStateDuration: 0.1
   cooldown: 0
   nextState: {fileID: 715413838}
   isActive: 0
@@ -749,8 +749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  SprintSpeed: 8
+  MoveSpeed: 7
+  SprintSpeed: 10
   RotationSmoothTime: 0.05
   SpeedChangeRate: 10
   JumpHeight: 0
@@ -1025,6 +1025,10 @@ PrefabInstance:
     - target: {fileID: 2536188144700118605, guid: ff3de0b95c778bf489cc5cbd64a5063c, type: 3}
       propertyPath: m_Name
       value: UIPlayerHealth
+      objectReference: {fileID: 0}
+    - target: {fileID: 2536188145969407694, guid: ff3de0b95c778bf489cc5cbd64a5063c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff3de0b95c778bf489cc5cbd64a5063c, type: 3}
