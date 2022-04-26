@@ -12,7 +12,6 @@ public class SwingPlayerState : AbstractPlayerState
         base.OnEnterState();
 
         player.blockMovement = true;
-        player.Animator.SetTrigger("StartSwing");
     }
     
     public override void OnExitState()

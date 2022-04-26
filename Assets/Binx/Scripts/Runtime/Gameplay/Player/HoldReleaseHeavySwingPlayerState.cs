@@ -20,6 +20,5 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
         base.OnExitState();
 
         player.blockMovement = false;
-        player.Animator.SetTrigger("EndHeavyAttack");
     }
 }

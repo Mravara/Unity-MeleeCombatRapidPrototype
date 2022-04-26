@@ -8,6 +8,22 @@ public class StartHeavySwingPlayerState : AbstractPlayerState
     {
         base.OnEnterState();
 
-        player.Animator.SetTrigger("StartHeavyAttack");
+        player.Animator.SetBool("Attack", true);
+    }
+    
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            EndAttack();
+        }
+    }
+    
+    private void EndAttack()
+    {
+        player.Animator.SetBool("Attack", false);
+        player.ChangeState(PlayerStateType.Swing);
     }
 }

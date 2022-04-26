@@ -2137,22 +2137,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2701689074359106160, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
-      propertyPath: speed
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2902027295858638291, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 9baddfb20fc6ee742911b84c264f9bb2, type: 2}
     - target: {fileID: 3978544611470424334, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
       propertyPath: m_Name
       value: Swordman_AStar
       objectReference: {fileID: 0}
-    - target: {fileID: 4191644690364262092, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c08f6a8409b604947aba288d792bd145, type: 2}
     - target: {fileID: 4358764886965969844, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -2196,10 +2184,6 @@ PrefabInstance:
     - target: {fileID: 4358764886965969844, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9142047134747312826, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}
-      propertyPath: maxSpeed
-      value: 35
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a45741efdc385c4796da4da2a1625af, type: 3}

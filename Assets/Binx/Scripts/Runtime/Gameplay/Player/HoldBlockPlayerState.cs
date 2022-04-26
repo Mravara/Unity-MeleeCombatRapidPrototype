@@ -20,4 +20,19 @@ public class HoldBlockPlayerState : AbstractPlayerState
 
         player.TPC.MoveSpeed = lastSpeed;
     }
+    
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        
+        if (Input.GetMouseButtonUp(1))
+        {
+            TryEndBlock();
+        }
+    }
+    
+    private void TryEndBlock()
+    {
+        player.ChangeState(PlayerStateType.EndBlock);
+    }
 }

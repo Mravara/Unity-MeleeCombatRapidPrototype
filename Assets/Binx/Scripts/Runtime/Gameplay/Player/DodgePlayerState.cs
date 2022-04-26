@@ -50,7 +50,8 @@ public class DodgePlayerState : AbstractPlayerState
         else
         {
             player.body.SetActive(true);
-            player.dodgeBody.SetActive(false);    
+            player.dodgeBody.SetActive(false);
+            player.TPC.UpdateRotation();
             player.TPC.ManualMove(forwardDirection, recoverySpeed);
         }
     }

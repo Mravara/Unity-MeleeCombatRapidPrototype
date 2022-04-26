@@ -414,5 +414,11 @@ namespace Binx
 		{
 			_controller.SimpleMove(Vector3.zero);
 		}
+
+		public void UpdateRotation()
+		{
+			transform.LookAt(lookAtTarget, Vector3.up);
+			transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 0f);
+		}
 	}
 }

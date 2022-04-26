@@ -8,6 +8,6 @@ public class ReleaseHeavySwingPlayerState : AbstractPlayerState
     {
         base.OnEnterState();
 
-        player.Animator.SetTrigger("ReleaseHeavyAttack");
+        player.Animator.SetBool("Attack", false);
     }
 }

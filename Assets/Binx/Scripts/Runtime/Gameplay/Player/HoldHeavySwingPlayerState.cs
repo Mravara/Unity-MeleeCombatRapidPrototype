@@ -19,6 +19,22 @@ public class HoldHeavySwingPlayerState : AbstractPlayerState
     {
         base.OnExitState();
 
+        
         player.TPC.MoveSpeed = lastSpeed;
+    }
+    
+    public override void UpdateState()
+    {
+        base.UpdateState();
+        
+        if (Input.GetMouseButtonUp(0))
+        {
+            TryEndAttack();
+        }
+    }
+    
+    private void TryEndAttack()
+    {
+        player.ChangeState(PlayerStateType.ReleaseHeavy);
     }
 }

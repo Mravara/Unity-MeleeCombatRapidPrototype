@@ -88,71 +88,8 @@ namespace Binx
                 thirdPersonController.LookAt(ProjectedMousePosition);
                 thirdPersonController.Simulate();
             }
-
-            HandleInputs();
             
             currentState.UpdateState();
-        }
-
-        private void HandleInputs()
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                TryHeavySwing();
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
-                TryFastSwing();
-            }
-
-            if (Input.GetMouseButtonDown(1))
-            {
-                TryBlock();
-            }
-            else if (Input.GetMouseButtonUp(1))
-            {
-                TryEndBlock();
-            }
-        }
-
-        private void TryHeavySwing()
-        {
-            if (currentState.stateType == PlayerStateType.Idle)
-            {
-                ChangeState(PlayerStateType.StartHeavy);
-            }
-        }
-        
-        private void TryFastSwing()
-        {
-            if (currentState.stateType == PlayerStateType.StartHeavy)
-            {
-                ChangeState(PlayerStateType.Swing);
-            }
-            else if (currentState.stateType == PlayerStateType.HoldHeavy)
-            {
-                ChangeState(PlayerStateType.ReleaseHeavy);
-            }
-        }
-
-        private void TryBlock()
-        {
-            if (currentState.stateType == PlayerStateType.Idle)
-            {
-                ChangeState(PlayerStateType.StartBlock);
-            }
-        }
-        
-        private void TryEndBlock()
-        {
-            if (currentState.stateType == PlayerStateType.StartBlock)
-            {
-                ChangeState(PlayerStateType.EndBlock);
-            }
-            if (currentState.stateType == PlayerStateType.HoldBlock)
-            {
-                ChangeState(PlayerStateType.EndBlock);
-            }
         }
         
         private void FixedUpdate()
