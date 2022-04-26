@@ -11,16 +11,15 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
     {
         base.OnEnterState();
 
-        lastSpeed = player.TPC.MoveSpeed;
-        player.TPC.MoveSpeed = 0f;
+        player.blockMovement = true;
         Player.instance.ShakeCameraStrong();
     }
     
     public override void OnExitState()
     {
-        base.OnEnterState();
+        base.OnExitState();
 
-        player.TPC.MoveSpeed = lastSpeed;
+        player.blockMovement = false;
         player.Animator.SetTrigger("EndHeavyAttack");
     }
 }

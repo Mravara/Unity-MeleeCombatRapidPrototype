@@ -29,5 +29,6 @@ public enum PlayerStateType
     StartHeavy,
     HoldHeavy,
     ReleaseHeavy,
-    HoldReleaseHeavy
+    HoldReleaseHeavy,
+    Dodge
 }

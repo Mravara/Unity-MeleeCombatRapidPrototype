@@ -257,5 +257,10 @@ namespace Binx
             if (cameraShaker)
                 cameraShaker.ShakeOnce(2f, 8f, 0f, 1f);
         }
+        
+        public void SetSpeed(float speed)
+        {
+            thirdPersonController.MoveSpeed = speed;
+        }
     }
 }

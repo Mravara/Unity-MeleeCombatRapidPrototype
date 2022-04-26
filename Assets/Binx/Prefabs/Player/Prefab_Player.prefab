@@ -138,6 +138,7 @@ Transform:
   - {fileID: 1718510812}
   - {fileID: 527364162}
   - {fileID: 1144302775}
+  - {fileID: 992258327038786850}
   m_Father: {fileID: 6330865466725380449}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -321,7 +322,7 @@ MonoBehaviour:
   stateType: 9
   currentStateDuration: 0
   minStateDuration: 0
-  maxStateDuration: 0.1
+  maxStateDuration: 0.2
   cooldown: 0
   nextState: {fileID: 715413838}
   isActive: 0
@@ -640,6 +641,57 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4754378949889133188
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 992258327038786850}
+  - component: {fileID: 3164497676111401157}
+  m_Layer: 6
+  m_Name: DodgePlayerState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &992258327038786850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754378949889133188}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 539836453}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3164497676111401157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4754378949889133188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c47c9849fbceb5141be5d16a83132780, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1183732199}
+  stateType: 10
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 0.5
+  cooldown: 0
+  nextState: {fileID: 715413838}
+  isActive: 0
 --- !u!1 &6329456421467977181
 GameObject:
   m_ObjectHideFlags: 0
@@ -894,6 +946,7 @@ MonoBehaviour:
   dodgeDuration: 0.3
   dodgeRecovery: 0.1
   isDodging: 0
+  blockMovement: 0
   currentState: {fileID: 715413838}
   playerStates:
   - {fileID: 715413838}
@@ -905,6 +958,7 @@ MonoBehaviour:
   - {fileID: 1718510813}
   - {fileID: 527364163}
   - {fileID: 1144302776}
+  - {fileID: 3164497676111401157}
 --- !u!136 &123545157
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1132,9 +1186,9 @@ PrefabInstance:
     - {fileID: 5330131916557101356, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
     - {fileID: 5028275024752545669, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
---- !u!4 &1239583870920802733 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3498970475425797612, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
+--- !u!20 &3780443836153971986 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1570595524029550931, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
   m_PrefabInstance: {fileID: 2431158667699835969}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &3780443836153971983 stripped
@@ -1142,9 +1196,9 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1570595524029550926, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
   m_PrefabInstance: {fileID: 2431158667699835969}
   m_PrefabAsset: {fileID: 0}
---- !u!20 &3780443836153971986 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 1570595524029550931, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
+--- !u!4 &1239583870920802733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3498970475425797612, guid: f455015eec5b95946a54f2f9abfd6396, type: 3}
   m_PrefabInstance: {fileID: 2431158667699835969}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2407087328871993054
@@ -1224,13 +1278,13 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: cb36075d486da304eb1e23496810e3ee, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaed82edda5f70a4aab9a6fd3c888b19, type: 3}
---- !u!4 &727141100140588568 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5209277365523408017, guid: aaed82edda5f70a4aab9a6fd3c888b19, type: 3}
-  m_PrefabInstance: {fileID: 4781768182093712009}
-  m_PrefabAsset: {fileID: 0}
 --- !u!95 &3469724905569507915 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8249099974810128578, guid: aaed82edda5f70a4aab9a6fd3c888b19, type: 3}
+  m_PrefabInstance: {fileID: 4781768182093712009}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &727141100140588568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5209277365523408017, guid: aaed82edda5f70a4aab9a6fd3c888b19, type: 3}
   m_PrefabInstance: {fileID: 4781768182093712009}
   m_PrefabAsset: {fileID: 0}

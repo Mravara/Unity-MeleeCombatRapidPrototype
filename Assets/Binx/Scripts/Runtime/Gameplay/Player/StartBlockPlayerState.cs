@@ -17,7 +17,7 @@ public class StartBlockPlayerState : AbstractPlayerState
     
     public override void OnExitState()
     {
-        base.OnEnterState();
+        base.OnExitState();
 
         player.TPC.MoveSpeed = lastSpeed;
     }

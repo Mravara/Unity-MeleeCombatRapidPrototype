@@ -101,6 +101,8 @@ namespace Binx
 
 		private Animator animator;
 		public Animator Animator => animator;
+		public float TargetRotation => _targetRotation;
+		public StarterAssetsInputs Input => _input;
 
 		private bool hasAnimator;
 
@@ -192,7 +194,7 @@ namespace Binx
 			// note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
 			// if there is no input, set the target speed to 0
 			if (_input.move == Vector2.zero) targetSpeed = 0.0f;
-
+			
 			// a reference to the players current horizontal velocity
 			float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
 
@@ -233,12 +235,9 @@ namespace Binx
 			animationDirection = Vector3.Lerp(animationDirection, targetAnimationDirection, runAnimationLerpFactor * deltaTime);
 			
 			// move the player
-			if (Player.instance.CurrentState.stateType == PlayerStateType.Swing || Player.instance.CurrentState.stateType == PlayerStateType.ReleaseHeavy)
-				_controller.Move(transform.forward * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
-			else
-				_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+			_controller.Move(targetDirection.normalized * (_speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
 
-			//s update animator if using character
+				//s update animator if using character
 			if (hasAnimator)
 			{
 				animator.SetFloat(animIDSpeed, _animationBlend);
@@ -365,7 +364,8 @@ namespace Binx
 			if (Player.instance.isDodging || _input.move.magnitude == 0f || Player.instance.CurrentState.stateType != PlayerStateType.Idle)
 				return;
 
-			StartCoroutine(DodgeCoroutine());
+			// StartCoroutine(DodgeCoroutine());
+			Player.instance.ChangeState(PlayerStateType.Dodge);
 		}
 
 		private IEnumerator DodgeCoroutine()
@@ -401,7 +401,6 @@ namespace Binx
 				yield return null;
 			}
 
-			_speed = 0f;
 			Player.instance.isDodging = false;
 		}
 
@@ -409,6 +408,11 @@ namespace Binx
 		{
 			float deltaTime = Time.deltaTime;
 			_controller.Move(direction * (speed * deltaTime) + new Vector3(0.0f, _verticalVelocity, 0.0f) * deltaTime);
+		}
+
+		public void Stop()
+		{
+			_controller.SimpleMove(Vector3.zero);
 		}
 	}
 }

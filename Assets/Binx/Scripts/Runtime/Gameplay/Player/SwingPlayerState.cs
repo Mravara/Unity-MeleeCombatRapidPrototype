@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SwingPlayerState : AbstractPlayerState
 {
+    private float lastSpeed;
     private float speedWhenSwinging = 15f;
     
     public override void OnEnterState()
@@ -16,16 +17,17 @@ public class SwingPlayerState : AbstractPlayerState
     
     public override void OnExitState()
     {
-        base.OnEnterState();
+        base.OnExitState();
 
         player.blockMovement = false;
+        player.TPC.Stop();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
-        if (currentStateDuration > 0.1f)
+        if (currentStateDuration < 0.1f)
         {
             player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
         }
