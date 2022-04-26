@@ -35,7 +35,9 @@ namespace Binx
         public Animator Animator => animator;
         public ThirdPersonController TPC => thirdPersonController;
         public AbstractPlayerState CurrentState => currentState;
-        
+        public int Damage = 40;
+        public int HeavyDamage = 80;
+
         private new Transform transform;
         private bool customMovementActive = false;
         private bool isDead = false;
@@ -118,7 +120,7 @@ namespace Binx
                 return;
             
             isDead = true;
-            Debug.Log("DEAD!");
+            Debug.Log("PLAYER DEAD!");
         }
 
         public Vector3 GetStoppingPoint(Vector3 from, float distance)

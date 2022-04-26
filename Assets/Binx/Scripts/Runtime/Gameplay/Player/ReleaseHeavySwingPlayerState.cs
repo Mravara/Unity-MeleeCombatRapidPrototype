@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ReleaseHeavySwingPlayerState : AbstractPlayerState
 {
+    private static readonly int attack = Animator.StringToHash("Attack");
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
-        player.Animator.SetBool("Attack", false);
+        player.Animator.SetBool(attack, false);
     }
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class EndBlockPlayerState : AbstractPlayerState
 {
+    private static readonly int block = Animator.StringToHash("Block");
+
     public override void OnEnterState()
     {
         base.OnEnterState();
         
-        player.Animator.SetBool("Block", false);
+        player.Animator.SetBool(block, false);
     }
 }

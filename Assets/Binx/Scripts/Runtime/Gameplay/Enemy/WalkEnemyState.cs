@@ -31,7 +31,7 @@ public class WalkEnemyState : AbstractEnemyState
         }
         else if (owner.FieldOfView.PlayerInRange())
         {
-            // owner.NavMeshAgent.SetDestination(Player.instance.GetStoppingPoint(transform.position, 2f));
+            
         }
     }
 }

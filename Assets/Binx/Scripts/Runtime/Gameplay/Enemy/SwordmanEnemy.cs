@@ -26,11 +26,6 @@ public class SwordmanEnemy : MonoBehaviour
     // states, mozda ce trebat
     [Header("States")]
     [SerializeField] private AbstractEnemyState currentState;
-    [SerializeField] private IdleEnemyState idleEnemyState;
-    [SerializeField] private WalkEnemyState walkEnemyState;
-    [SerializeField] private PrepareToSwingEnemyState prepareToSwingEnemyState;
-    [SerializeField] private HoldSwingEnemyState holdSwingEnemyState;
-    [SerializeField] private SwingEnemyState swingEnemyState;
 
     [SerializeField] private PrepareToThrustEnemyState prepareToThrustEnemyState;
     [SerializeField] private HoldPrepareToThrustEnemyState holdPrepareToThrustEnemyState;
@@ -40,7 +35,9 @@ public class SwordmanEnemy : MonoBehaviour
     [SerializeField] private RecoverFromSwingEnemyState recoverFromSwingEnemyState;
     [SerializeField] private StaggeredEnemyState staggeredEnemyState;
     [SerializeField] private AbstractEnemyState[] enemyStates;
-    
+
+    [SerializeField] private CharacterController characterController;
+
     private Transform t;
     private new Renderer renderer;
     private float speedMultiplier = 1f;
@@ -58,6 +55,7 @@ public class SwordmanEnemy : MonoBehaviour
     public Collider SwordCollider => swordCollider;
     public FieldOfView FieldOfView => fieldOfView;
     public AIPath AIPath => aiPath;
+    public CharacterController CharacterController => characterController;
     
     private void Start()
     {
@@ -77,7 +75,7 @@ public class SwordmanEnemy : MonoBehaviour
             s.owner = this;
         }
 
-        ChangeState(idleEnemyState);
+        ChangeState(EnemyStateType.Idle);
     }
     
     private void OnSwordTriggerEnter(Collider obj)
@@ -117,6 +115,30 @@ public class SwordmanEnemy : MonoBehaviour
         
         currentState = newState;
         currentState.OnEnterState();
+    }
+    
+    public void DealDamage(int damage)
+    {
+        currentHealth -= Mathf.Max(0, damage);
+        if (currentHealth <= 0)
+        {
+            currentHealth = 0;
+            Die();
+        }
+        else
+        {
+            Debug.Log("Pushbacking");
+            ChangeState(EnemyStateType.Pushback);
+        }
+    }
+    
+    private void Die()
+    {
+        if (isDead)
+            return;
+            
+        isDead = true;
+        Debug.Log("ENEMY DEAD!");
     }
 
     public void SwingStarted()

@@ -726,6 +726,7 @@ Transform:
   - {fileID: 7888181098181827788}
   - {fileID: 2493159475659639467}
   - {fileID: 5510729841842719558}
+  - {fileID: 1341681177541261192}
   m_Father: {fileID: 4358764886965969844}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -745,7 +746,7 @@ GameObject:
   - component: {fileID: 9142047134747312825}
   - component: {fileID: 9142047134747312824}
   - component: {fileID: 9142047134747312823}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Swordman_AStar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -791,13 +792,8 @@ MonoBehaviour:
   initialWalkingSpeed: 5
   accelerationValue: 30
   damage: 60
-  maxHealth: 15
+  maxHealth: 100
   currentState: {fileID: 0}
-  idleEnemyState: {fileID: 6576277379037811620}
-  walkEnemyState: {fileID: 44423473432325730}
-  prepareToSwingEnemyState: {fileID: 8303732661513264923}
-  holdSwingEnemyState: {fileID: 8945898712519804174}
-  swingEnemyState: {fileID: 2813709118990743993}
   prepareToThrustEnemyState: {fileID: 6241022412120849726}
   holdPrepareToThrustEnemyState: {fileID: 4615165017434910974}
   holdThrustEnemyState: {fileID: 2248073834532404760}
@@ -817,6 +813,8 @@ MonoBehaviour:
   - {fileID: 4448964203705719131}
   - {fileID: 2248073834532404760}
   - {fileID: 7784958307292928138}
+  - {fileID: 4937184871931862820}
+  characterController: {fileID: 0}
 --- !u!114 &2694388611041318398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1235,6 +1233,57 @@ MonoBehaviour:
   maxStateDuration: 0.5
   cooldown: 0
   nextState: {fileID: 44423473432325730}
+  isActive: 0
+--- !u!1 &8927055078993792832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1341681177541261192}
+  - component: {fileID: 4937184871931862820}
+  m_Layer: 0
+  m_Name: PushbackEnemyState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1341681177541261192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927055078993792832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 679572092378754882}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4937184871931862820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927055078993792832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0738e21b99304056b2215fed4e94a3d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateType: 12
+  owner: {fileID: 0}
+  currentStateDuration: 0
+  minStateDuration: 0
+  maxStateDuration: 0.5
+  cooldown: 0
+  nextState: {fileID: 6576277379037811620}
   isActive: 0
 --- !u!1 &8997687273080998898
 GameObject:

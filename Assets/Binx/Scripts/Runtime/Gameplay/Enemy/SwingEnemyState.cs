@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class SwingEnemyState : AbstractEnemyState
 {
+    private static readonly int swing = Animator.StringToHash("Swing");
+
     public override void OnEnterState()
     {
         base.OnEnterState();
@@ -12,7 +14,7 @@ public class SwingEnemyState : AbstractEnemyState
         // owner.NavMeshAgent.speed = 8f;
         // owner.NavMeshAgent.acceleration = 100f;
         owner.SetSpeed(8f);
-        owner.Animator.SetTrigger("Swing");
+        owner.Animator.SetTrigger(swing);
         owner.SwordCollider.enabled = true;
     }
 

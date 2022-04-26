@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class StartHeavySwingPlayerState : AbstractPlayerState
 {
+    private static readonly int attack = Animator.StringToHash("Attack");
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
-        player.Animator.SetBool("Attack", true);
+        player.Animator.SetBool(attack, true);
+    }
+    
+    public override void OnExitState()
+    {
+        base.OnExitState();
+
+        player.Animator.SetBool(attack, false);
     }
     
     public override void UpdateState()
@@ -23,7 +32,7 @@ public class StartHeavySwingPlayerState : AbstractPlayerState
     
     private void EndAttack()
     {
-        player.Animator.SetBool("Attack", false);
+        player.Animator.SetBool(attack, false);
         player.ChangeState(PlayerStateType.Swing);
     }
 }
