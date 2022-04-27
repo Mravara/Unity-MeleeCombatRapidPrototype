@@ -326,6 +326,11 @@ MonoBehaviour:
   cooldown: 0
   nextState: {fileID: 715413838}
   isActive: 0
+  boxCenter: {x: 0, y: 1, z: 2}
+  boxSize: {x: 4, y: 2, z: 3}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1295090753
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,6 +958,7 @@ MonoBehaviour:
   isDodging: 0
   blockMovement: 0
   Damage: 40
+  HeavyDamage: 80
   currentState: {fileID: 715413838}
   playerStates:
   - {fileID: 715413838}

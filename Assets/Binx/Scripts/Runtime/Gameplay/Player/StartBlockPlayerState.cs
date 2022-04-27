@@ -28,6 +28,9 @@ public class StartBlockPlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
+        if (!isActive)
+            return;
+        
         if (Input.GetMouseButtonUp(1))
         {
             TryEndBlock();

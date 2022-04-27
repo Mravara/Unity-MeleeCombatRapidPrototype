@@ -8,6 +8,9 @@ public class IdlePlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
+        if (!isActive)
+            return;
+        
         if (Input.GetMouseButtonDown(0))
         {
             TryAttack();

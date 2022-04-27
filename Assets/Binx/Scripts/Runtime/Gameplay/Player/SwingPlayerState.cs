@@ -20,7 +20,6 @@ public class SwingPlayerState : AbstractPlayerState
         base.OnEnterState();
 
         player.blockMovement = true;
-        ignoredColliders.Clear();
     }
     
     public override void OnExitState()

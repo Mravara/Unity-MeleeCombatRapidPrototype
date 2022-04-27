@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class AbstractEnemyState : MonoBehaviour
 {
-    public EnemyStateType stateType;
+    public EnemyStcekaateType stateType;
     
     [HideInInspector]
     public SwordmanEnemy owner;

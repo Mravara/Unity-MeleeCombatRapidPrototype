@@ -45,6 +45,9 @@ public class DodgePlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
+        if (!isActive)
+            return;
+        
         if (currentStateDuration < 0.3f)
             player.TPC.ManualMove(forwardDirection, dodgeSpeed);
         else

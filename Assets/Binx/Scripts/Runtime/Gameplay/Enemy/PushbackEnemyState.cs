@@ -19,6 +19,7 @@ public class PushbackEnemyState : AbstractEnemyState
     {
         base.OnExitState();
 
+        // tu usporiti na 0
     }
 
     public override void UpdateState()

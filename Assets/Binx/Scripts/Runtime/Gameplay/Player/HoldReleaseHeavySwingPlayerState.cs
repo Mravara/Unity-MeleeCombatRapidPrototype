@@ -12,8 +12,6 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
     [SerializeField] private LayerMask layerMask;
     
     private HashSet<Collider> ignoredColliders = new HashSet<Collider>();
-
-    private readonly Collider[] results = new Collider[10];
     
     public override void OnEnterState()
     {
@@ -28,17 +26,20 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
         base.OnExitState();
 
         player.blockMovement = false;
+        ignoredColliders.Clear();
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
 
-        int size = Physics.OverlapBoxNonAlloc(
-            transform.position + boxCenter, boxSize / 2f, results, player.transform.rotation, layerMask);
-        for (int i = 0; i < size; i++)
+        if (!isActive)
+            return;
+
+        Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
+        for (int i = 0; i < colliders.Length; i++)
         {
-            Collider c = results[i];
+            Collider c = colliders[i];
 
             if (!ignoredColliders.Add(c))
                 continue;

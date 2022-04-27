@@ -29,6 +29,9 @@ public class HoldHeavySwingPlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
+        if (!isActive)
+            return;
+        
         if (Input.GetMouseButtonUp(0))
         {
             TryEndAttack();

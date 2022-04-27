@@ -127,7 +127,6 @@ public class SwordmanEnemy : MonoBehaviour
         }
         else
         {
-            Debug.Log("Pushbacking");
             ChangeState(EnemyStateType.Pushback);
         }
     }

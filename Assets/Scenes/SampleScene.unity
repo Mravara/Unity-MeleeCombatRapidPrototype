@@ -1342,10 +1342,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1144302776, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 128
-      objectReference: {fileID: 0}
     - target: {fileID: 6329456421467977181, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
       propertyPath: m_Name
       value: Prefab_Player
