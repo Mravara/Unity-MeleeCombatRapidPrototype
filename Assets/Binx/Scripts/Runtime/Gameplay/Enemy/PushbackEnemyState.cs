@@ -19,7 +19,8 @@ public class PushbackEnemyState : AbstractEnemyState
     {
         base.OnExitState();
 
-        // tu usporiti na 0
+        owner.AIPath.Move(Vector3.zero);
+        owner.AIPath.FinalizeMovement(owner.AIPath.position, owner.AIPath.rotation);
     }
 
     public override void UpdateState()

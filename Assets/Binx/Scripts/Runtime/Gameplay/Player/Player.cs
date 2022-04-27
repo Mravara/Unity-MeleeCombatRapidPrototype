@@ -1,6 +1,9 @@
+using System;
 using Binx.UI;
 using EZCameraShake;
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 namespace Binx
 {
@@ -15,28 +18,38 @@ namespace Binx
         [SerializeField] private Transform cameraFollowTransform;
         [SerializeField] private UIPlayerHealth playerHealth;
         [SerializeField] private CameraShaker cameraShaker;
+        [SerializeField] private Image staminaImage;
         public GameObject body;
         public GameObject dodgeBody;
         
         [Header("Health")]
-        [SerializeField] private int maxHealth;
-        [SerializeField] private int currentHealth;
+        [SerializeField] private float maxHealth;
+        [SerializeField] private float currentHealth;
         
         [Header("Dodge")]
         public float dodgeDuration = 0.3f;
         public float dodgeRecovery = 0.1f;
         public bool isDodging = false;
         public bool blockMovement = false;
+
+        [Header("Stamina")] 
+        public float currentStamina = 0f;
+        public float maxStamina = 100f;
+        private float staminaUpdateTime;
+        private float staminaUpdateCooldown = 1f;
+        private float staminaUpdateRate = 50f;
         
         public Vector3 Position => transform.position;
         public Vector3 ProjectedMousePosition => projectedMousePosition;
-        public int CurrentHealth => currentHealth;
-        public int MaxHealth => maxHealth;
+        public float CurrentHealth => currentHealth;
+        public float MaxHealth => maxHealth;
         public Animator Animator => animator;
         public ThirdPersonController TPC => thirdPersonController;
         public AbstractPlayerState CurrentState => currentState;
-        public int Damage = 40;
-        public int HeavyDamage = 80;
+        public float damage = 40f;
+        public float heavyDamage = 80f;
+        public bool updateStamina = true;
+        public float damageModifier = 1f;
 
         private new Transform transform;
         private bool customMovementActive = false;
@@ -48,12 +61,44 @@ namespace Binx
         [SerializeField] private AbstractPlayerState currentState;
         [SerializeField] private AbstractPlayerState[] playerStates;
 
-        public void DealDamage(int damage)
+        public float DamageWithModifier => damage * damageModifier;
+        public float HeavyDamageWithModifier => heavyDamage * damageModifier;
+
+        private void Awake()
+        {
+            transform = GetComponent<Transform>();
+            currentHealth = maxHealth;
+            instance = this;
+            playerHealth.SetCamera(playerCamera);
+        }
+        
+        private void Start()
+        {
+            if (currentState)
+                currentState.OnEnterState();
+        }
+
+        public void DealDamage(AbstractEnemy enemy, float damage)
         {
             if (isDodging)
                 return;
+
+            if (currentState.stateType == PlayerStateType.StartBlock || currentState.stateType == PlayerStateType.Parry)
+            {
+                enemy.Parried();
+                return;
+            }
+
+            if (currentState.stateType == PlayerStateType.HoldBlock)
+            {
+                if (currentStamina > 0f)
+                {
+                    SpendStamina(damage);
+                    return;
+                }
+            }
             
-            currentHealth -= Mathf.Max(0,damage);
+            currentHealth -= Mathf.Max(0f, damage);
             if (currentHealth <= 0)
             {
                 currentHealth = 0;
@@ -72,15 +117,7 @@ namespace Binx
             if (currentHealth > maxHealth)
                 currentHealth = maxHealth;
         }
-        
-        private void Awake()
-        {
-            transform = GetComponent<Transform>();
-            currentHealth = maxHealth;
-            instance = this;
-            playerHealth.SetCamera(playerCamera);
-        }
-        
+
         private void Update()
         {
             ProjectMousePosition();
@@ -90,6 +127,9 @@ namespace Binx
                 thirdPersonController.LookAt(ProjectedMousePosition);
                 thirdPersonController.Simulate();
             }
+
+            if (updateStamina)
+                UpdateStamina();
             
             currentState.UpdateState();
         }
@@ -98,6 +138,15 @@ namespace Binx
         {
             if (Position.y < -0.1f)
                 transform.position = new Vector3(Position.x, 0f, Position.z);
+        }
+
+        private void UpdateStamina()
+        {
+            if (Time.time > staminaUpdateTime)
+            {
+                currentStamina = Mathf.Min(currentStamina + staminaUpdateRate * Time.deltaTime, maxStamina);
+                staminaImage.fillAmount = currentStamina / maxStamina;
+            }
         }
         
         private void ProjectMousePosition()
@@ -149,6 +198,9 @@ namespace Binx
         
         public void ChangeState(AbstractPlayerState newState)
         {
+            if (newState.staminaCost > 0f && currentStamina < 0f)
+                return;
+            
             if (currentState)
             {
                 currentState.OnExitState();
@@ -160,17 +212,7 @@ namespace Binx
         
         public void ChangeState(PlayerStateType t)
         {
-            for (int i = 0; i < playerStates.Length; i++)
-            {
-                AbstractPlayerState s = playerStates[i];
-                if (s.stateType == t)
-                {
-                    ChangeState(s);
-                    return;
-                }
-            }
-        
-            Debug.LogError($"Invalid state {t}!");
+            ChangeState(GetState(t));
         }
         
         public void ShakeCameraSuperWeak()
@@ -200,6 +242,28 @@ namespace Binx
         public void SetSpeed(float speed)
         {
             thirdPersonController.MoveSpeed = speed;
+        }
+
+        public void SpendStamina(float stamina)
+        {
+            currentStamina -= stamina;
+            staminaImage.fillAmount = currentStamina / maxStamina;
+            staminaUpdateTime = Time.time + staminaUpdateCooldown;
+        }
+
+        public AbstractPlayerState GetState(PlayerStateType stateType)
+        {
+            for (int i = 0; i < playerStates.Length; i++)
+            {
+                AbstractPlayerState s = playerStates[i];
+                if (s.stateType == stateType)
+                {
+                    return s;
+                }
+            }
+
+            Debug.LogError($"Invalid state {stateType}!");
+            return null;
         }
     }
 }

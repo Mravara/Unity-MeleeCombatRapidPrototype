@@ -33,12 +33,12 @@ public class StartBlockPlayerState : AbstractPlayerState
         
         if (Input.GetMouseButtonUp(1))
         {
-            TryEndBlock();
+            EndBlock();
         }
     }
     
-    private void TryEndBlock()
+    private void EndBlock()
     {
-        player.ChangeState(PlayerStateType.EndBlock);
+        player.ChangeState(PlayerStateType.Parry);
     }
 }

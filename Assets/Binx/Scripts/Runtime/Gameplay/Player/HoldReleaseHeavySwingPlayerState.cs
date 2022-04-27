@@ -45,7 +45,7 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
                 continue;
 
             c.TryGetComponent(out SwordmanEnemy enemy);
-            enemy.DealDamage(player.HeavyDamage);
+            enemy.DealDamage(player.HeavyDamageWithModifier);
         }
     }
 }

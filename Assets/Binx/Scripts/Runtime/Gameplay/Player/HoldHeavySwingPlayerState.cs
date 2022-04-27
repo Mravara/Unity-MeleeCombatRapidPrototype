@@ -15,6 +15,8 @@ public class HoldHeavySwingPlayerState : AbstractPlayerState
         lastSpeed = player.TPC.MoveSpeed;
         player.TPC.MoveSpeed = 3f;
         player.Animator.SetBool(attack, true);
+        player.SpendStamina(staminaCost);
+        player.updateStamina = false;
     }
     
     public override void OnExitState()
@@ -23,6 +25,7 @@ public class HoldHeavySwingPlayerState : AbstractPlayerState
 
         player.TPC.MoveSpeed = lastSpeed;
         player.Animator.SetBool(attack, false);
+        player.updateStamina = true;
     }
     
     public override void UpdateState()

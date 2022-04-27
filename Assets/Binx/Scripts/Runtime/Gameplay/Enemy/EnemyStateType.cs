@@ -31,5 +31,6 @@ public enum PlayerStateType
     HoldHeavy,
     ReleaseHeavy,
     HoldReleaseHeavy,
-    Dodge
+    Dodge,
+    Parry
 }

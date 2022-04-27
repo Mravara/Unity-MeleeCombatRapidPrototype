@@ -792,7 +792,7 @@ MonoBehaviour:
   initialWalkingSpeed: 5
   accelerationValue: 30
   damage: 60
-  maxHealth: 100
+  maxHealth: 1000000000
   currentState: {fileID: 0}
   prepareToThrustEnemyState: {fileID: 6241022412120849726}
   holdPrepareToThrustEnemyState: {fileID: 4615165017434910974}
@@ -814,7 +814,7 @@ MonoBehaviour:
   - {fileID: 2248073834532404760}
   - {fileID: 7784958307292928138}
   - {fileID: 4937184871931862820}
-  characterController: {fileID: 0}
+  characterController: {fileID: 9142047134747312825}
 --- !u!114 &2694388611041318398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ MonoBehaviour:
   owner: {fileID: 0}
   currentStateDuration: 0
   minStateDuration: 0
-  maxStateDuration: 0.5
+  maxStateDuration: 0.1
   cooldown: 0
   nextState: {fileID: 6576277379037811620}
   isActive: 0

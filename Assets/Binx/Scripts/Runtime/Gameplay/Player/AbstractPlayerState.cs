@@ -13,6 +13,7 @@ public abstract class AbstractPlayerState : MonoBehaviour
     public float minStateDuration;
     public float maxStateDuration;
     public float cooldown;
+    public float staminaCost;
     public AbstractPlayerState nextState;
     public bool isActive = false;
 

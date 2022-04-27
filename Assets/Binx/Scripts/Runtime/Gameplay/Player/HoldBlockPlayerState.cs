@@ -14,6 +14,7 @@ public class HoldBlockPlayerState : AbstractPlayerState
         lastSpeed = player.TPC.MoveSpeed;
         player.TPC.MoveSpeed = 3f;
         player.Animator.SetBool(block, true);
+        player.updateStamina = false;
     }
     
     public override void OnExitState()
@@ -22,6 +23,7 @@ public class HoldBlockPlayerState : AbstractPlayerState
 
         player.TPC.MoveSpeed = lastSpeed;
         player.Animator.SetBool(block, false);
+        player.updateStamina = true;
     }
     
     public override void UpdateState()
@@ -31,13 +33,13 @@ public class HoldBlockPlayerState : AbstractPlayerState
         if (!isActive)
             return;
         
-        if (Input.GetMouseButtonUp(1))
+        if (!Input.GetMouseButton(1))
         {
-            TryEndBlock();
+            EndBlock();
         }
     }
     
-    private void TryEndBlock()
+    private void EndBlock()
     {
         player.ChangeState(PlayerStateType.EndBlock);
     }

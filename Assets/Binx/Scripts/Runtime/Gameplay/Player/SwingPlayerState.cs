@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class SwingPlayerState : AbstractPlayerState
 {
+    private int currentFrame = 0;
+    private int maxFrames = 10;
     [SerializeField]
     private Vector3 boxCenter = new Vector3(0f, 1f, 2f);
     [SerializeField]
     private Vector3 boxSize = new Vector3(4f, 2f, 3f);
     [SerializeField] private LayerMask layerMask;
     
-    private float speedWhenSwinging = 15f;
+    private float speedWhenSwinging = 10f;
 
     private HashSet<Collider> ignoredColliders = new HashSet<Collider>();
 
@@ -19,6 +21,7 @@ public class SwingPlayerState : AbstractPlayerState
     {
         base.OnEnterState();
 
+        currentFrame = 0;
         player.blockMovement = true;
     }
     
@@ -38,7 +41,7 @@ public class SwingPlayerState : AbstractPlayerState
         if (!isActive)
             return;
 
-        if (currentStateDuration < 0.1f)
+        if (++currentFrame < maxFrames)
         {
             player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
         }
@@ -52,7 +55,7 @@ public class SwingPlayerState : AbstractPlayerState
                 continue;
             
             c.TryGetComponent(out SwordmanEnemy enemy);
-            enemy.DealDamage(player.Damage);
+            enemy.DealDamage(player.DamageWithModifier);
         }
     }
 }

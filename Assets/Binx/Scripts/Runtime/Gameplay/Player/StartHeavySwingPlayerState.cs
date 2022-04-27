@@ -6,11 +6,15 @@ public class StartHeavySwingPlayerState : AbstractPlayerState
 {
     private static readonly int attack = Animator.StringToHash("Attack");
 
+    private float heavyStaminaCost;
+
     public override void OnEnterState()
     {
         base.OnEnterState();
 
         player.Animator.SetBool(attack, true);
+        player.SpendStamina(staminaCost);
+        heavyStaminaCost = player.GetState(PlayerStateType.ReleaseHeavy).staminaCost;
     }
     
     public override void OnExitState()
@@ -24,7 +28,7 @@ public class StartHeavySwingPlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || player.currentStamina < heavyStaminaCost)
         {
             EndAttack();
         }

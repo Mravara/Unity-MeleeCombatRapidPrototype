@@ -2,7 +2,7 @@ using Binx;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class GreatSwordmanEnemy : MonoBehaviour
+public class GreatSwordmanEnemy : AbstractEnemy
 {
     [Header("References")]
     //[SerializeField] private new Renderer renderer;
@@ -70,7 +70,7 @@ public class GreatSwordmanEnemy : MonoBehaviour
     {
         if (obj.gameObject.layer == Player.instance.gameObject.layer)
         {
-            Player.instance.DealDamage(damage);
+            Player.instance.DealDamage(this, damage);
         }
     }
 

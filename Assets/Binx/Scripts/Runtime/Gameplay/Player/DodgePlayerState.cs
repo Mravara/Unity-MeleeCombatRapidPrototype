@@ -28,6 +28,8 @@ public class DodgePlayerState : AbstractPlayerState
 			
         if (player.TPC.Input.move.magnitude > 0f)
             forwardDirection = targetDirection.normalized;
+        
+        player.SpendStamina(staminaCost);
     }
     
     public override void OnExitState()

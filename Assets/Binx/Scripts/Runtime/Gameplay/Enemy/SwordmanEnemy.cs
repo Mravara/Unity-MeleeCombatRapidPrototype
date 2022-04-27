@@ -3,7 +3,7 @@ using Pathfinding;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SwordmanEnemy : MonoBehaviour
+public class SwordmanEnemy : AbstractEnemy
 {
     [Header("References")]
     //[SerializeField] private new Renderer renderer;
@@ -20,8 +20,8 @@ public class SwordmanEnemy : MonoBehaviour
     [SerializeField] private float speed = 5f;
     [SerializeField] private float initialWalkingSpeed = 5f;
     [SerializeField] private float accelerationValue = 8f;
-    [SerializeField] private int damage;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private float damage;
+    [SerializeField] private float maxHealth;
     
     // states, mozda ce trebat
     [Header("States")]
@@ -82,7 +82,7 @@ public class SwordmanEnemy : MonoBehaviour
     {
         if (obj.gameObject.layer == Player.instance.gameObject.layer)
         {
-            Player.instance.DealDamage(damage);
+            Player.instance.DealDamage(this, damage);
         }
     }
 
@@ -117,7 +117,7 @@ public class SwordmanEnemy : MonoBehaviour
         currentState.OnEnterState();
     }
     
-    public void DealDamage(int damage)
+    public void DealDamage(float damage)
     {
         currentHealth -= Mathf.Max(0, damage);
         if (currentHealth <= 0)
@@ -177,5 +177,12 @@ public class SwordmanEnemy : MonoBehaviour
         }
 
         return false;
+    }
+
+    public override void Parried()
+    {
+        base.Parried();
+        
+        ChangeState(EnemyStateType.Staggered);
     }
 }

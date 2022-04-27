@@ -11,5 +11,6 @@ public class ReleaseHeavySwingPlayerState : AbstractPlayerState
         base.OnEnterState();
 
         player.Animator.SetBool(attack, false);
+        player.SpendStamina(staminaCost);
     }
 }
