@@ -1671,6 +1671,10 @@ PrefabInstance:
       propertyPath: staminaCost
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 919132148412215672, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6329456421467977181, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
       propertyPath: m_Name
       value: Prefab_Player
@@ -1717,6 +1721,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6330865466725380449, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7572931520854883405, guid: 25244ace58ff07f41b02e59964378e1d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

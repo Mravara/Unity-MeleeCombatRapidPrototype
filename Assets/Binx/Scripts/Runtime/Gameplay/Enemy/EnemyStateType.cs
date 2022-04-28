@@ -16,7 +16,9 @@ public enum EnemyStateType
     Thrust,
     HoldThrust,
     RecoverFromThrust,
-    Pushback
+    Pushback,
+    ShortSwing,
+    HeavySwing
 }
 
 public enum PlayerStateType
