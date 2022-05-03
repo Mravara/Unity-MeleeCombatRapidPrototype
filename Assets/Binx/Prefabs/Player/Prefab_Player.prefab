@@ -101,7 +101,7 @@ MonoBehaviour:
   minStateDuration: 0
   maxStateDuration: 0.1
   cooldown: 0
-  staminaCost: 10
+  staminaCost: 0
   nextState: {fileID: 1144302776}
   isActive: 0
 --- !u!1 &539836452
@@ -578,7 +578,7 @@ MonoBehaviour:
   minStateDuration: 0
   maxStateDuration: 0
   cooldown: 0
-  staminaCost: 0
+  staminaCost: 10
   nextState: {fileID: 527364163}
   isActive: 0
 --- !u!1 &2143434141
@@ -1132,7 +1132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8aa84b3850dc529479befded4c203156, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2803436535603912181, guid: 8aa84b3850dc529479befded4c203156, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1280,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10
       objectReference: {fileID: 0}
+    - target: {fileID: 4607233978506368244, guid: ff3de0b95c778bf489cc5cbd64a5063c, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 6330865466725380449}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff3de0b95c778bf489cc5cbd64a5063c, type: 3}
 --- !u!114 &3722546307032245876 stripped
@@ -1479,6 +1483,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
       propertyPath: m_Name
       value: PlayerSpine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5712518044707197683, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
       propertyPath: m_Materials.Array.data[0]

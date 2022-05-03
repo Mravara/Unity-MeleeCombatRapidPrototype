@@ -31,7 +31,7 @@ public class HeavySwingEnemyState : AbstractEnemyState
         base.LateUpdateState();
 
         float minDistance = 2f;
-        if (Vector3.Distance(transform.position, Player.instance.Position) < minDistance && owner.FieldOfView.PlayerInSight())
+        if (frozen || Vector3.Distance(transform.position, Player.instance.Position) < minDistance && owner.FieldOfView.PlayerInSight())
         {
             FreezePosition();
         }

@@ -25,6 +25,9 @@ public abstract class AbstractPlayerState : MonoBehaviour
     {
         currentStateDuration += Time.deltaTime;
 
+        if (minStateDuration > 0f && currentStateDuration < minStateDuration)
+            return;
+
         if (maxStateDuration > 0f)
         {
             if (nextState && currentStateDuration >= maxStateDuration)

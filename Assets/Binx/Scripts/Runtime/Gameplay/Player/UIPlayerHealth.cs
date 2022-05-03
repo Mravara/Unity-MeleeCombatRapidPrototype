@@ -6,6 +6,7 @@ namespace Binx.UI
 {
     public class UIPlayerHealth : MonoBehaviour
     {
+        [SerializeField] private Transform target;
         [SerializeField] private RectTransform healthLayout;
         [SerializeField] private Image healthImage;
         [SerializeField] private Vector3 healthOffset = new Vector3(0f, 0.1f, -0.5f);
@@ -17,6 +18,7 @@ namespace Binx.UI
         private void Awake()
         {
             transform.SetParent(null);
+            camera = Camera.main;
         }
 
         public void LateUpdate()
@@ -43,7 +45,7 @@ namespace Binx.UI
         private void UpdatePosition()
         {
             if (camera)
-                healthLayout.position = camera.WorldToScreenPoint(Player.instance.Position) + ScaledHealthOffset;
+                healthLayout.position = camera.WorldToScreenPoint(target.position) + ScaledHealthOffset;
         }
     }
 }

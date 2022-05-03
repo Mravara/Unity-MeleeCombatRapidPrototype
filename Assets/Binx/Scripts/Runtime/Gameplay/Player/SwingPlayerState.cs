@@ -41,10 +41,10 @@ public class SwingPlayerState : AbstractPlayerState
         if (!isActive)
             return;
 
-        if (++currentFrame < maxFrames)
-        {
-            player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
-        }
+        // if (++currentFrame < maxFrames)
+        // {
+        //     player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
+        // }
 
         Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
         for (int i = 0; i < colliders.Length; i++)

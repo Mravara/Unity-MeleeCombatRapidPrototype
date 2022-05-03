@@ -83,10 +83,10 @@ namespace Binx
             if (isDodging)
                 return;
 
-            if (currentState.stateType == PlayerStateType.StartBlock || currentState.stateType == PlayerStateType.Parry)
-            {
                 enemy.Parried();
                 return;
+            if (currentState.stateType == PlayerStateType.StartBlock || currentState.stateType == PlayerStateType.Parry)
+            {
             }
 
             if (currentState.stateType == PlayerStateType.HoldBlock)

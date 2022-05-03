@@ -19,18 +19,26 @@ public class WalkEnemyState : AbstractEnemyState
     {
         base.UpdateState();
 
+        if (minStateDuration > 0f && currentStateDuration < minStateDuration)
+            return;
+        
         if (owner.FieldOfView.PlayerInShortAttackRange())
         {
             float rnd = Random.Range(0f, 1f);
-            if (rnd <= 0.5f)
+            if (rnd <= 0.33f)
             {
                 if (owner.IsStateReady(EnemyStateType.ShortSwing))
                     owner.ChangeState(EnemyStateType.ShortSwing);
             }
-            else
+            else if (rnd <= 0.66f)
             {
                 if (owner.IsStateReady(EnemyStateType.HeavySwing))
                     owner.ChangeState(EnemyStateType.HeavySwing);
+            }
+            else
+            {
+                if (owner.IsStateReady(EnemyStateType.Thrust))
+                    owner.ChangeState(EnemyStateType.Thrust);
             }
         }
         else if (owner.FieldOfView.PlayerInLongAttackRange())

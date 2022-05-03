@@ -9,12 +9,13 @@ public class IdleEnemyState : AbstractEnemyState
         base.OnEnterState();
         
         owner.Animator.SetBool(idle, true);
+        owner.SetSpeed(0f);
     }
     
     public override void OnExitState()
     {
         base.OnExitState();
-
+        
     }
     
     public override void UpdateState()

@@ -18,7 +18,7 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
         base.OnEnterState();
 
         player.blockMovement = true;
-        Player.instance.ShakeCameraStrong();
+        Invoke("Shake", 0.05f);
     }
     
     public override void OnExitState()
@@ -47,5 +47,10 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
             c.TryGetComponent(out SwordmanEnemy enemy);
             enemy.DealDamage(player.HeavyDamageWithModifier);
         }
+    }
+
+    private void Shake()
+    {
+        Player.instance.ShakeCameraStrong();
     }
 }
