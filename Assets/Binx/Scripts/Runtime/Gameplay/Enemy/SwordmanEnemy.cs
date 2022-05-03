@@ -11,7 +11,6 @@ public class SwordmanEnemy : AbstractEnemy
     [SerializeField] private ColliderLink swordColliderLink;
     [SerializeField] private Animator animator;
     // [SerializeField] private NavMeshAgent navmeshAgent;
-    [SerializeField] private new Collider collider;
     [SerializeField] private Collider swordCollider;
     [SerializeField] private AIPath aiPath;
     [SerializeField] private AIDestinationSetter aiDestinationSetter;
@@ -65,7 +64,6 @@ public class SwordmanEnemy : AbstractEnemy
         // navmeshAgent.acceleration = accelerationValue;
         currentHealth = MaxHealth;
 
-        collider = GetComponent<Collider>();
         renderer = GetComponent<Renderer>();
 
         aiDestinationSetter.target = Player.instance.transform;
@@ -89,6 +87,11 @@ public class SwordmanEnemy : AbstractEnemy
     private void Update()
     {
         currentState.UpdateState();
+    }
+    
+    private void LateUpdate()
+    {
+        currentState.LateUpdateState();
     }
     
     public void ChangeState(EnemyStateType t)

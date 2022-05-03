@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class IdleEnemyState : AbstractEnemyState
+public class AlertEnemyState : AbstractEnemyState
 {
     private static readonly int idle = Animator.StringToHash("Idle");
 
@@ -8,22 +8,23 @@ public class IdleEnemyState : AbstractEnemyState
     {
         base.OnEnterState();
         
-        owner.Animator.SetBool(idle, true);
+        owner.Animator.SetBool(idle, false);
     }
     
     public override void OnExitState()
     {
         base.OnExitState();
 
+        
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
         
-        if (owner.FieldOfView.PlayerInSight())
+        if (owner.FieldOfView.PlayerInRange())
         {
-            owner.ChangeState(EnemyStateType.Alert);
+            owner.ChangeState(EnemyStateType.Walk);
         }
     }
 }

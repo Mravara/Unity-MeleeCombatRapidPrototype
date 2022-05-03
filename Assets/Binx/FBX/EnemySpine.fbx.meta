@@ -4,152 +4,119 @@ ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: 956162607370723279
-    second: Player_Armature|EnemyIdle
+      74: -2963153218396664802
+    second: EnemyHat|DodgeLeft
   - first:
-      74: 5888663901011719666
-    second: Player_Armature|EnemyRest
+      74: 6893330581050863883
+    second: EnemyHat|Walk
   - first:
-      74: -4262281616873069124
-    second: Player_Armature|EnemySwing
+      74: 2320532027131893920
+    second: EnemyMustache|DodgeLeft
   - first:
-      74: 5300763396705098818
-    second: Player_Armature|PlayerAction
+      74: -3449166198042546729
+    second: EnemyMustache|Walk
   - first:
-      74: 2955502448955903574
-    second: Player_Armature|Player|EndBlock
+      74: -351956641766802173
+    second: EnemyRoot|DodgeLeft
   - first:
-      74: 1797049543023190744
-    second: Player_Armature|Player|HoldBlock
+      74: -9148461241672650641
+    second: EnemyRoot|ShortSwing
   - first:
-      74: -4762660916698935203
-    second: Player_Armature|Player|HoldHeavySwing
+      74: 5483162288843253540
+    second: EnemyRoot|Walk
   - first:
-      74: -3669923290126638427
-    second: Player_Armature|Player|HoldReleaseHeavySwing
+      74: 8053543019467803692
+    second: EnemyRightEye|DodgeLeft
   - first:
-      74: 3127554438441456190
-    second: Player_Armature|Player|Idle
+      74: 6841602487103791077
+    second: EnemyRightEye|Walk
   - first:
-      74: -528998400111014239
-    second: Player_Armature|Player|LoopStagger
+      74: 2255403317768657146
+    second: EnemyLeftEye|DodgeLeft
   - first:
-      74: 6416723128013712139
-    second: Player_Armature|Player|ReleaseHeavySwing
+      74: 7438346827069619210
+    second: EnemyLeftEye|Walk
   - first:
-      74: 3972311920764802556
-    second: Player_Armature|Player|Rest
+      74: -1783214110630759143
+    second: Hips|Alert
   - first:
-      74: 9065695784544302040
-    second: Player_Armature|Player|StartBlock
+      74: -2948259220690129915
+    second: Hips|DodgeLeft
   - first:
-      74: 7406642719897177729
-    second: Player_Armature|Player|StartHeavySwing
+      74: -213922883231128662
+    second: Hips|Idle
   - first:
-      74: 8299448558638085328
-    second: Player_Armature|Player|StartStagger
+      74: 7166824028299349227
+    second: Hips|LookAround
   - first:
-      74: -8226184681798746239
-    second: Player_Armature|Player|Swing
+      74: -6536487585038781801
+    second: Hips|ShortSwing
   - first:
-      74: -786249229703830425
-    second: EnemyShield|EnemyRest
+      74: -5763528299155342155
+    second: Hips|Walk
   - first:
-      74: -7262236848061820542
-    second: Enemy_Armature|EnemyHeavySwing
+      74: -2916510584042226310
+    second: RightHand|DodgeLeft
   - first:
-      74: -6436536868021579520
-    second: Enemy_Armature|EnemyIdle
+      74: 2517211813016258807
+    second: RightHand|Walk
   - first:
-      74: 2065297300858928376
-    second: Enemy_Armature|EnemyRest
+      74: -4313963005394513937
+    second: LeftHand|DodgeLeft
   - first:
-      74: -1701744521699856588
-    second: Enemy_Armature|EnemySwing
+      74: 8553860762369609090
+    second: LeftHand|Walk
   - first:
-      74: 1676290850705116195
-    second: Enemy_Armature|PlayerAction
+      74: 4631176758871607912
+    second: Sword|DodgeLeft
   - first:
-      74: 8382646605207086634
-    second: Enemy_Armature|Player|EndBlock
+      74: 7100334003186554525
+    second: Sword|Walk
   - first:
-      74: -2007176079939015951
-    second: Enemy_Armature|Player|HoldBlock
+      74: 3816182278422859466
+    second: EnemyHat|Action
   - first:
-      74: -6124763789907224106
-    second: Enemy_Armature|Player|HoldHeavySwing
+      74: -4731704388699830889
+    second: EnemyMustache|Action
   - first:
-      74: -6633078282459729559
-    second: Enemy_Armature|Player|HoldReleaseHeavySwing
+      74: -2980287840963053048
+    second: EnemyRoot|Action
   - first:
-      74: 2361838135269435983
-    second: Enemy_Armature|Player|Idle
+      74: -7698090761381079939
+    second: EnemyRightEye|Action
   - first:
-      74: -933543721777548727
-    second: Enemy_Armature|Player|LoopStagger
+      74: 451686072506720287
+    second: EnemyLeftEye|Action
   - first:
-      74: 1163848778781033041
-    second: Enemy_Armature|Player|ReleaseHeavySwing
+      74: -8775194563141358734
+    second: Hips|Action
   - first:
-      74: 5232621396244248851
-    second: Enemy_Armature|Player|Rest
+      74: -3668750714624657938
+    second: RightHand|Action
   - first:
-      74: -978634906694381137
-    second: Enemy_Armature|Player|StartBlock
+      74: 4709455549915555667
+    second: LeftHand|Action
   - first:
-      74: 5498755928442043249
-    second: Enemy_Armature|Player|StartHeavySwing
+      74: 8181127398429717131
+    second: Sword|Action
   - first:
-      74: 1086295551986176564
-    second: Enemy_Armature|Player|StartStagger
+      74: -3745917278484660868
+    second: Alert
   - first:
-      74: -3281305292935731579
-    second: Enemy_Armature|Player|Swing
+      74: -3100369314251171874
+    second: Idle
   - first:
-      74: 4727694630892207861
-    second: EnemyHair|EnemyHeavySwing
+      74: -6747532249613684151
+    second: LookAround
   - first:
-      74: 1258168540027256653
-    second: Enemy_Armature|EndBlock
+      74: 1675250539490254701
+    second: ShortSwing
   - first:
-      74: -2418590618054355744
-    second: Enemy_Armature|HoldBlock
+      74: -4901426676514173271
+    second: AlertLoop
   - first:
-      74: -1275932136604944378
-    second: Enemy_Armature|HoldHeavySwing
-  - first:
-      74: 3802446981016148712
-    second: Enemy_Armature|HoldReleaseHeavySwing
-  - first:
-      74: 986526618490127958
-    second: Enemy_Armature|Idle
-  - first:
-      74: -7846841464529984909
-    second: Enemy_Armature|Idle2
-  - first:
-      74: -6206279598258073989
-    second: Enemy_Armature|LoopStagger
-  - first:
-      74: -5951235636030674524
-    second: Enemy_Armature|ReleaseHeavySwing
-  - first:
-      74: -6244659827997618334
-    second: Enemy_Armature|ShortSwing
-  - first:
-      74: -92117853916138035
-    second: Enemy_Armature|StartBlock
-  - first:
-      74: 953392186785755510
-    second: Enemy_Armature|StartHeavySwing
-  - first:
-      74: 2138905579737357054
-    second: Enemy_Armature|StartStagger
-  - first:
-      74: 6044372026538056951
-    second: Enemy_Armature|SuperHeavySwing
-  - first:
-      74: 3056727642269878869
-    second: Enemy_Armature|Swing
+      74: 1035091124285730724
+    second: HeavySwing
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -159,9 +126,9 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 1
+    resampleCurves: 0
     optimizeGameObjects: 0
-    motionNodeName: 
+    motionNodeName: Armature/RootBone
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
@@ -170,7 +137,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -179,11 +146,40 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Enemy_Armature|EndBlock
-      takeName: Enemy_Armature|EndBlock
+      name: Alert
+      takeName: Alert
       internalID: 0
       firstFrame: 0
-      lastFrame: 5
+      lastFrame: 15
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Idle
+      takeName: Idle
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -208,8 +204,66 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Armature|HoldBlock
-      takeName: Enemy_Armature|HoldBlock
+      name: LookAround
+      takeName: LookAround
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: ShortSwing
+      takeName: ShortSwing
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: AlertLoop
+      takeName: AlertLoop
       internalID: 0
       firstFrame: 0
       lastFrame: 1
@@ -226,7 +280,7 @@ ModelImporter:
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -237,11 +291,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Enemy_Armature|HoldHeavySwing
-      takeName: Enemy_Armature|HoldHeavySwing
+      name: HeavySwing
+      takeName: HeavySwing
       internalID: 0
       firstFrame: 0
-      lastFrame: 1
+      lastFrame: 80
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -253,328 +307,9 @@ ModelImporter:
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
+      keepOriginalOrientation: 1
       keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|HoldReleaseHeavySwing
-      takeName: Enemy_Armature|HoldReleaseHeavySwing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 1
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|Idle
-      takeName: Enemy_Armature|Idle
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 9
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|Idle2
-      takeName: Enemy_Armature|Idle2
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 10
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|LoopStagger
-      takeName: Enemy_Armature|LoopStagger
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|ReleaseHeavySwing
-      takeName: Enemy_Armature|ReleaseHeavySwing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 3
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|ShortSwing
-      takeName: Enemy_Armature|ShortSwing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 25
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|StartBlock
-      takeName: Enemy_Armature|StartBlock
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 5
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|StartHeavySwing
-      takeName: Enemy_Armature|StartHeavySwing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 5
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|StartStagger
-      takeName: Enemy_Armature|StartStagger
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 10
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|SuperHeavySwing
-      takeName: Enemy_Armature|SuperHeavySwing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 35
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
-    - serializedVersion: 16
-      name: Enemy_Armature|Swing
-      takeName: Enemy_Armature|Swing
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 20
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
+      keepOriginalPositionXZ: 1
       heightFromFeet: 0
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
@@ -639,7 +374,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: RootBone
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -647,7 +382,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   additionalBone: 0
   userData: 

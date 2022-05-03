@@ -34,6 +34,11 @@ public abstract class AbstractEnemyState : MonoBehaviour
         }
     }
 
+    public virtual void LateUpdateState()
+    {
+        
+    }
+
     public virtual void OnEnterState()
     {
         currentStateDuration = 0f;
