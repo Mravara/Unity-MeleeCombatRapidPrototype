@@ -19,8 +19,11 @@ namespace Binx
         [SerializeField] private UIPlayerHealth playerHealth;
         [SerializeField] private CameraShaker cameraShaker;
         [SerializeField] private Image staminaImage;
+        [SerializeField] private ColliderLink colliderLink;
         public GameObject body;
+        public GameObject armature;
         public GameObject dodgeBody;
+        public Collider swordCollider;
         
         [Header("Health")]
         [SerializeField] private float maxHealth;
@@ -76,6 +79,21 @@ namespace Binx
         {
             if (currentState)
                 currentState.OnEnterState();
+
+            colliderLink.OnTriggerEnterEvent += OnSwordTriggerEnter;
+        }
+
+        private void OnSwordTriggerEnter(Collider obj)
+        {
+            int enemyLayer = LayerMask.NameToLayer("Enemy");
+            if (obj.gameObject.layer == enemyLayer)
+            {
+                SwordmanEnemy enemy = obj.gameObject.GetComponent<SwordmanEnemy>();
+                if (enemy)
+                {
+                    enemy.DealDamage(DamageWithModifier);
+                }
+            }
         }
 
         public void DealDamage(AbstractEnemy enemy, float damage)
@@ -83,10 +101,10 @@ namespace Binx
             if (isDodging)
                 return;
 
-                enemy.Parried();
-                return;
             if (currentState.stateType == PlayerStateType.StartBlock || currentState.stateType == PlayerStateType.Parry)
             {
+                enemy.Parried();
+                return;
             }
 
             if (currentState.stateType == PlayerStateType.HoldBlock)

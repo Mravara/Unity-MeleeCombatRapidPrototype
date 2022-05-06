@@ -18,6 +18,7 @@ public class DodgePlayerState : AbstractPlayerState
         
         player.body.SetActive(false);
         player.dodgeBody.SetActive(true);
+        player.armature.SetActive(false);
         
         Vector3 targetDirection = Quaternion.Euler(0.0f, player.TPC.TargetRotation, 0.0f) * Vector3.forward;
 
@@ -41,6 +42,7 @@ public class DodgePlayerState : AbstractPlayerState
         
         player.body.SetActive(true);
         player.dodgeBody.SetActive(false);
+        player.armature.SetActive(true);
     }
     
     public override void UpdateState()
@@ -56,6 +58,7 @@ public class DodgePlayerState : AbstractPlayerState
         {
             player.body.SetActive(true);
             player.dodgeBody.SetActive(false);
+            player.armature.SetActive(true);
             player.TPC.UpdateRotation();
             player.TPC.ManualMove(forwardDirection, recoverySpeed);
         }

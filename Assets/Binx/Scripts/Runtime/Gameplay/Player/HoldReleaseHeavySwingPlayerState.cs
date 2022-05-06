@@ -19,6 +19,9 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
 
         player.blockMovement = true;
         Invoke("Shake", 0.05f);
+        player.damageModifier = 3f;
+
+        ScanAndDamage();
     }
     
     public override void OnExitState()
@@ -27,30 +30,26 @@ public class HoldReleaseHeavySwingPlayerState : AbstractPlayerState
 
         player.blockMovement = false;
         ignoredColliders.Clear();
-    }
-
-    public override void UpdateState()
-    {
-        base.UpdateState();
-
-        if (!isActive)
-            return;
-
-        Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            Collider c = colliders[i];
-
-            if (!ignoredColliders.Add(c))
-                continue;
-
-            c.TryGetComponent(out SwordmanEnemy enemy);
-            enemy.DealDamage(player.HeavyDamageWithModifier);
-        }
+        player.damageModifier = 1f;
     }
 
     private void Shake()
     {
         Player.instance.ShakeCameraStrong();
+    }
+
+    private void ScanAndDamage()
+    {
+        Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            Collider c = colliders[i];
+        
+            if (!ignoredColliders.Add(c))
+                continue;
+        
+            c.TryGetComponent(out SwordmanEnemy enemy);
+            enemy.DealDamage(player.HeavyDamageWithModifier);
+        }
     }
 }

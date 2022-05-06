@@ -15,23 +15,23 @@ public class SwingPlayerState : AbstractPlayerState
     
     private float speedWhenSwinging = 10f;
 
-    private HashSet<Collider> ignoredColliders = new HashSet<Collider>();
+    // private HashSet<Collider> ignoredColliders = new HashSet<Collider>();
 
     public override void OnEnterState()
     {
         base.OnEnterState();
 
         currentFrame = 0;
-        player.blockMovement = true;
+        player.TPC.Stop();
+        player.swordCollider.enabled = true;
     }
     
     public override void OnExitState()
     {
         base.OnExitState();
-
-        player.blockMovement = false;
-        player.TPC.Stop();
-        ignoredColliders.Clear();
+            
+        player.swordCollider.enabled = false;
+        // ignoredColliders.Clear();
     }
 
     public override void UpdateState()
@@ -46,16 +46,16 @@ public class SwingPlayerState : AbstractPlayerState
         //     player.TPC.ManualMove(player.transform.forward, speedWhenSwinging);
         // }
 
-        Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
-        for (int i = 0; i < colliders.Length; i++)
-        {
-            Collider c = colliders[i];
-            
-            if (!ignoredColliders.Add(c))
-                continue;
-            
-            c.TryGetComponent(out SwordmanEnemy enemy);
-            enemy.DealDamage(player.DamageWithModifier);
-        }
+        // Collider[] colliders = Physics.OverlapBox(player.transform.position + player.transform.TransformDirection(boxCenter), boxSize / 2f, player.transform.rotation, layerMask);
+        // for (int i = 0; i < colliders.Length; i++)
+        // {
+        //     Collider c = colliders[i];
+        //     
+        //     if (!ignoredColliders.Add(c))
+        //         continue;
+        //     
+        //     c.TryGetComponent(out SwordmanEnemy enemy);
+        //     enemy.DealDamage(player.DamageWithModifier);
+        // }
     }
 }

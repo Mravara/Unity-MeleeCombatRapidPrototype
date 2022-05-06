@@ -182,6 +182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerSpine
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
 --- !u!1 &95783715 stripped
@@ -237,8 +241,11 @@ MonoBehaviour:
   playerHealth: {fileID: 3722546307721258934}
   cameraShaker: {fileID: 2407087330368278300}
   staminaImage: {fileID: 927817187}
+  colliderLink: {fileID: 95783721}
   body: {fileID: 95783716}
+  armature: {fileID: 977857133}
   dodgeBody: {fileID: 8496776878278940759}
+  swordCollider: {fileID: 95783722}
   maxHealth: 100
   currentHealth: 0
   dodgeDuration: 0.3
@@ -289,7 +296,7 @@ MeshCollider:
   m_GameObject: {fileID: 95783717}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -478,7 +485,7 @@ MonoBehaviour:
   stateType: 5
   currentStateDuration: 0
   minStateDuration: 0
-  maxStateDuration: 0.1
+  maxStateDuration: 1
   cooldown: 0
   staminaCost: 0
   nextState: {fileID: 1134024844}
@@ -597,7 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6aea31780bf518c4eb2ab1f8092a38ee, type: 3}
       propertyPath: m_Name
-      value: EnemySpine (1)
+      value: EnemySpine
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6aea31780bf518c4eb2ab1f8092a38ee, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3805688988141419503, guid: 6aea31780bf518c4eb2ab1f8092a38ee, type: 3}
       propertyPath: m_LocalRotation.w
@@ -654,7 +665,7 @@ MonoBehaviour:
   initialWalkingSpeed: 5
   accelerationValue: 30
   damage: 60
-  maxHealth: 1e+9
+  maxHealth: 300
   currentState: {fileID: 0}
   prepareToThrustEnemyState: {fileID: 6174760739581444958}
   holdPrepareToThrustEnemyState: {fileID: 4837399115672669854}
@@ -1398,6 +1409,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927817185}
   m_CullTransparentMesh: 1
+--- !u!1 &977857133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7036213049465896255, guid: d22bb1b3a999028458dc6dd2654250ec, type: 3}
+  m_PrefabInstance: {fileID: 95783714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1015194942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4370,9 +4386,9 @@ GameObject:
   - component: {fileID: 2536188144574017501}
   - component: {fileID: 8535493533196774555}
   - component: {fileID: 1585481469690570502}
-  - component: {fileID: 4607233978363489633}
+  - component: {fileID: 2536188144574017498}
   m_Layer: 5
-  m_Name: UIPlayerHealth (1)
+  m_Name: UIPlayerHealth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4398,6 +4414,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2536188144574017498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2536188144574017496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69d4f6c42d0c4dc3b485ab03fa83e787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 319635733}
+  healthLayout: {fileID: 808299855093232190}
+  healthImage: {fileID: 2536188145605080465}
+  healthOffset: {x: 0, y: -30, z: -0.5}
+  referenceResolutionHeight: 1080
+  enemy: {fileID: 319635734}
 --- !u!223 &2536188144574017501
 Canvas:
   m_ObjectHideFlags: 0
@@ -5339,23 +5373,6 @@ Transform:
   m_Father: {fileID: 319635733}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4607233978363489633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2536188144574017496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70c60b6b880a9aa46859877dbe4a04b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 319635733}
-  healthLayout: {fileID: 808299855093232190}
-  healthImage: {fileID: 2536188145605080465}
-  healthOffset: {x: 0, y: -30, z: -0.5}
-  referenceResolutionHeight: 1080
 --- !u!33 &4657044511846640368
 MeshFilter:
   m_ObjectHideFlags: 0
