@@ -1,3 +1,4 @@
+using System.Collections;
 using Binx;
 using Pathfinding;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class SwordmanEnemy : AbstractEnemy
     [SerializeField] private Animator animator;
     // [SerializeField] private NavMeshAgent navmeshAgent;
     [SerializeField] private Collider swordCollider;
+    [SerializeField] private Renderer swordRenderer;
     [SerializeField] private AIPath aiPath;
     [SerializeField] private AIDestinationSetter aiDestinationSetter;
     
@@ -55,6 +57,10 @@ public class SwordmanEnemy : AbstractEnemy
     public FieldOfView FieldOfView => fieldOfView;
     public AIPath AIPath => aiPath;
     public CharacterController CharacterController => characterController;
+
+    private Material defaultSwordMaterial;
+    [SerializeField] private Material redSwordMaterial;
+    [SerializeField] private Material whiteSwordMaterial;
     
     private void Start()
     {
@@ -66,6 +72,8 @@ public class SwordmanEnemy : AbstractEnemy
 
         renderer = GetComponent<Renderer>();
 
+        defaultSwordMaterial = swordRenderer.material;
+        
         aiDestinationSetter.target = Player.instance.transform;
 
         foreach (AbstractEnemyState s in enemyStates)
@@ -122,6 +130,11 @@ public class SwordmanEnemy : AbstractEnemy
     
     public void DealDamage(float damage)
     {
+        if (currentState.stateType == EnemyStateType.Staggered)
+        {
+            damage *= 2f;
+        }
+        
         currentHealth -= Mathf.Max(0, damage);
         if (currentHealth <= 0)
         {
@@ -141,6 +154,7 @@ public class SwordmanEnemy : AbstractEnemy
             
         isDead = true;
         Debug.Log("ENEMY DEAD!");
+        Destroy(gameObject);
     }
 
     public void SwingStarted()
@@ -187,5 +201,33 @@ public class SwordmanEnemy : AbstractEnemy
         base.Parried();
         
         ChangeState(EnemyStateType.Staggered);
+    }
+
+    public void FlashSword()
+    {
+        StartCoroutine(FlashSwordCoroutine());
+    }
+
+    private IEnumerator FlashSwordCoroutine()
+    {
+        float duration = 0.2f;
+        float endTime = Time.time + duration;
+        bool x = true;
+        while (Time.time < endTime)
+        {
+            if (x)
+            {
+                x = false;
+                swordRenderer.material = redSwordMaterial;
+            }
+            else
+            {
+                x = true;
+                swordRenderer.material = whiteSwordMaterial;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        swordRenderer.material = defaultSwordMaterial;
     }
 }

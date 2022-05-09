@@ -23,6 +23,11 @@ namespace Binx.UI
 
         public void LateUpdate()
         {
+            if (!target)
+            {
+                Destroy(gameObject);
+                return;
+            }
             UpdateFillAmount();
             UpdatePosition();
         }
