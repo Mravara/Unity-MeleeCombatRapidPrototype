@@ -15,6 +15,7 @@ namespace Binx
         [SerializeField] private Animator animator;
         [SerializeField] private Camera playerCamera;
         [SerializeField] private ThirdPersonController thirdPersonController;
+        [SerializeField] private CharacterController characterController;
         [SerializeField] private Transform cameraFollowTransform;
         [SerializeField] private UIPlayerHealth playerHealth;
         [SerializeField] private CameraShaker cameraShaker;
@@ -55,7 +56,7 @@ namespace Binx
         public float damageModifier = 1f;
 
         private new Transform transform;
-        private bool customMovementActive = false;
+        public static bool customMovementActive = false;
         private bool isDead = false;
         private bool hasProjectedMousePosition;
         private Vector3 projectedMousePosition;
@@ -140,9 +141,9 @@ namespace Binx
         {
             ProjectMousePosition();
 
+            thirdPersonController.LookAt(ProjectedMousePosition);
             if (!customMovementActive)
             {
-                thirdPersonController.LookAt(ProjectedMousePosition);
                 thirdPersonController.Simulate();
             }
 
@@ -282,6 +283,15 @@ namespace Binx
 
             Debug.LogError($"Invalid state {stateType}!");
             return null;
+        }
+
+        public void OnAnimationStateEnter(AnimatorStateInfo stateInfo)
+        {
+            ChangeState(PlayerStateType.Idle);
+        }
+        
+        public void OnAnimationStateExit(AnimatorStateInfo stateInfo)
+        {
         }
     }
 }

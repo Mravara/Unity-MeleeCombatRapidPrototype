@@ -19,6 +19,9 @@ public class IdlePlayerState : AbstractPlayerState
         {
             TryBlock();
         }
+        
+        if (currentStateDuration > 0.17f)
+            player.Animator.applyRootMotion = false;
     }
     
     private void TryAttack()

@@ -33,7 +33,7 @@ public abstract class AbstractPlayerState : MonoBehaviour
             if (nextState && currentStateDuration >= maxStateDuration)
             {
                 if (nextState.IsReady)
-                    player.ChangeState(nextState.stateType);
+                    NextState();
             }
         }
     }
@@ -48,5 +48,10 @@ public abstract class AbstractPlayerState : MonoBehaviour
     {
         isActive = false;
         nextReadyTime = Time.time + cooldown;
+    }
+
+    public void NextState()
+    {
+        player.ChangeState(nextState);
     }
 }

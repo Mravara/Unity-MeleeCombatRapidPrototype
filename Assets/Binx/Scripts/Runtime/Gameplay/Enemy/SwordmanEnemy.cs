@@ -222,7 +222,7 @@ public class SwordmanEnemy : AbstractEnemy
             }
             else
             {
-                x = true;
+                x = true; 
                 swordRenderer.material = whiteSwordMaterial;
             }
             yield return new WaitForSeconds(0.1f);
