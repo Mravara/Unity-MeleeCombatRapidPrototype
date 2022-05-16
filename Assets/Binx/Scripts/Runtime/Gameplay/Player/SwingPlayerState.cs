@@ -18,6 +18,7 @@ public class SwingPlayerState : AbstractPlayerState
     
     private float speedWhenSwinging = 10f;
     private static readonly int combo = Animator.StringToHash("Combo");
+    private static readonly int transition = Animator.StringToHash("DualShortSwing1 -> DualWalk");
 
     private bool swingAgain = false;
 
@@ -57,7 +58,9 @@ public class SwingPlayerState : AbstractPlayerState
         if (!isActive)
             return;
 
-        if (Input.GetMouseButtonDown(0))
+        AnimatorTransitionInfo info = player.Animator.GetAnimatorTransitionInfo(0);
+        bool isInTransition = player.Animator.IsInTransition(0) && info.nameHash == transition;
+        if (!isInTransition && Input.GetMouseButtonDown(0))
         {
             player.Animator.SetTrigger(combo);
             nextState = player.GetState(PlayerStateType.Swing);

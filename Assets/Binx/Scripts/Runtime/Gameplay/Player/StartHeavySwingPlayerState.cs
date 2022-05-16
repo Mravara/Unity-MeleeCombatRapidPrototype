@@ -28,7 +28,7 @@ public class StartHeavySwingPlayerState : AbstractPlayerState
     {
         base.UpdateState();
         
-        if (Input.GetMouseButtonUp(0) || player.currentStamina < heavyStaminaCost)
+        if (!Input.GetMouseButton(0) || player.currentStamina < heavyStaminaCost)
         {
             EndAttack();
         }
